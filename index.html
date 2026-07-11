@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0f172a">
+<title>每日新闻中英对照 2026-07-10</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text: #1e293b;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+  --accent: #3b82f6;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  --card-gap: 8px;
+}
+/* Light green theme - card background only */
+body.green-mode {
+  --card-bg: #f0fdf4;
+}
+/* Light gray theme - card background only */
+body.gray-mode {
+  --card-bg: #f3f4f6;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 60px;
+}
+.header {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: white;
+  padding: 20px 16px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.theme-toggle {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+.theme-toggle:active {
+  background: rgba(255,255,255,0.25);
+}
+.header h1 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.header .date {
+  font-size: 13px;
+  opacity: 0.8;
+}
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+.stats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.legend {
+  background: var(--card-bg);
+  margin: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  font-size: 13px;
+}
+.legend-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+.legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+.legend-sample {
+  font-weight: 700;
+  font-size: 13px;
+}
+.cat-filter {
+  margin: 0 12px 12px;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 2px 0;
+  scrollbar-width: none;
+}
+.cat-filter::-webkit-scrollbar { display: none; }
+.cat-tab {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.cat-tab:active { transform: scale(0.95); }
+.cat-tab.active {
+  background: #1e293b;
+  color: white;
+  border-color: #1e293b;
+}
+.section-title {
+  padding: 16px 16px 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .icon {
+  font-size: 20px;
+}
+.country-section {
+  margin: 0 12px 16px;
+}
+.country-header {
+  padding: 10px 14px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: var(--card-gap);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.news-card {
+  background: var(--card-bg);
+  margin-bottom: var(--card-gap);
+  padding: 14px 16px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  border-left: 3px solid transparent;
+}
+.news-card:last-child {
+  margin-bottom: 0;
+}
+.tags {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+.tag-country {
+  background: #f1f5f9;
+  color: #475569;
+}
+.tag-category {
+  background: #eff6ff;
+  color: #2563eb;
+}
+.en-text {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  color: #1e293b;
+  word-break: break-word;
+}
+.zh-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #475569;
+  padding-left: 10px;
+  border-left: 3px solid var(--border);
+  word-break: break-word;
+}
+.source-link {
+  margin-top: 8px;
+  font-size: 12px;
+}
+.source-link a {
+  color: var(--accent);
+  text-decoration: none;
+  word-break: break-all;
+}
+.source-link a:active {
+  opacity: 0.7;
+}
+.kw {
+  font-weight: 700;
+  cursor: help;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 0;
+}
+.keywords-section {
+  margin: 0 12px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.kw-card {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.kw-card:last-child {
+  border-bottom: none;
+}
+.kw-pair {
+  flex: 1;
+  min-width: 0;
+}
+.kw-en {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.kw-zh {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.kw-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.kw-cat {
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+.kw-diff {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: white;
+}
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.summary-table th, .summary-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.summary-table th {
+  background: #f1f5f9;
+  font-weight: 700;
+  color: var(--text);
+  position: sticky;
+  top: 0;
+}
+.summary-table tr:last-child td {
+  border-bottom: none;
+}
+.summary-table td:nth-child(1) {
+  font-weight: 600;
+  width: 38%;
+}
+.summary-table td:nth-child(2) {
+  color: var(--text-secondary);
+  width: 28%;
+}
+.summary-table td:nth-child(3) {
+  color: var(--text-secondary);
+  width: 20%;
+}
+.summary-table td:nth-child(4) {
+  text-align: center;
+  width: 14%;
+}
+.footer {
+  text-align: center;
+  padding: 20px 16px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.back-top {
+  position: fixed;
+  bottom: 20px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(59,130,246,0.4);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-box {
+  margin: 12px;
+  position: relative;
+}
+.search-box input {
+  width: 100%;
+  padding: 10px 14px 10px 36px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  background: var(--card-bg);
+  outline: none;
+}
+.search-box input:focus {
+  border-color: var(--accent);
+}
+.search-box::before {
+  content: "F50D";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+}
+@media (max-width: 480px) {
+  .header h1 { font-size: 16px; }
+  .en-text, .zh-text { font-size: 13px; line-height: 1.75; }
+  .news-card { padding: 12px 12px; }
+  .country-section { margin: 0 8px 16px; }
+  .legend { margin: 8px; padding: 10px 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <button class="theme-toggle" onclick="toggleTheme()" title="切换背景色">🎨 模式</button>
+  <h1>每日新闻中英对照</h1>
+  <div class="date">2026-07-10</div>
+  <div class="stats">
+    <span>43 条新闻</span>
+    <span>50 个关键词</span>
+    <span>16 个国家/地区</span>
+  </div>
+</div>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="搜索新闻或关键词..." oninput="filterContent()">
+</div>
+
+<div class="cat-filter" id="catFilter">
+  <span class="cat-tab active" onclick="filterCategory('全部', this)">全部</span>
+  <span class="cat-tab" onclick="filterCategory('经济', this)">经济</span>
+  <span class="cat-tab" onclick="filterCategory('科技', this)">科技</span>
+  <span class="cat-tab" onclick="filterCategory('地缘政治', this)">地缘政治</span>
+  <span class="cat-tab" onclick="filterCategory('社会', this)">社会</span>
+  <span class="cat-tab" onclick="filterCategory('医疗', this)">医疗</span>
+  <span class="cat-tab" onclick="filterCategory('能源', this)">能源</span>
+  <span class="cat-tab" onclick="filterCategory('汽车', this)">汽车</span>
+  <span class="cat-tab" onclick="filterCategory('航天', this)">航天</span>
+  <span class="cat-tab" onclick="filterCategory('环境政策', this)">环境政策</span>
+  <span class="cat-tab" onclick="filterCategory('体育', this)">体育</span>
+  <span class="cat-tab" onclick="filterCategory('文化', this)">文化</span>
+  <span class="cat-tab" onclick="filterCategory('金融科技', this)">金融科技</span>
+  <span class="cat-tab" onclick="filterCategory('灾害', this)">灾害</span>
+  <span class="cat-tab" onclick="filterCategory('旅游', this)">旅游</span>
+</div>
+
+<div class="legend">
+  <div class="legend-title">关键词难度色标</div>
+  <div class="legend-items">
+<div class="legend-item"><span class="legend-sample" style="color:#16a34a">keyword</span> 初级</div><div class="legend-item"><span class="legend-sample" style="color:#2563eb">keyword</span> 中级</div><div class="legend-item"><span class="legend-sample" style="color:#dc2626">keyword</span> 高级</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="icon">📰</span> 新闻摘要</div>
+
+<div class="country-section" data-search="澳大利亚">
+  <div class="country-header">
+    <span>🇦🇺 澳大利亚</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">1 条</span>
+  </div>
+
+  <div class="news-card" data-search="澳大利亚 经济 RBA unexpectedly held rate at 3.85% vs expected cut. IMF lowered Australia 2026 growth forecast to 1.9%. 18 lenders cut mortgage rates below 5.9% despite RBA hold. 澳联储意外维持利率3.85%不变(预期降息)。IMF下调澳洲2026年增长预期至1.9%。18家贷款机构逆势下调房贷利率至5.9%以下。">
+    <div class="tags">
+      <span class="tag tag-country">🇦🇺 澳大利亚</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">RBA unexpectedly held rate at 3.85% vs expected cut. IMF lowered Australia 2026 <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="growth forecast / 增长预期 / 中级">growth forecast</span> to 1.9%. 18 lenders cut <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="mortgage rate / 房贷利率 / 中级">mortgage rates</span> below 5.9% despite RBA hold.</div>
+    <div class="zh-text">澳联储意外维持<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="central bank rate / 央行利率 / 中级">利率</span>3.85%不变(预期降息)。IMF下调澳洲2026年<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="growth forecast / 增长预期 / 中级">增长预期</span>至1.9%。18家贷款机构逆势下调<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="mortgage rate / 房贷利率 / 中级">房贷利率</span>至5.9%以下。</div>
+    <div class="source-link"><a href="https://dy.163.com/article/L1ETQM1A05199N88.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="巴西">
+  <div class="country-header">
+    <span>🇧🇷 巴西</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="巴西 经济 Brazil's new auto IPI tax policy took effect: locally produced sustainable vehicles qualify for tax exemption. EV import quota of $463 million with zero tariffs for CKD/SKD within quota. 巴西汽车工业品税新政生效：本土达标新能源车免征IPI。电动车进口配额4.63亿美元，配额内CKD/SKD零关税。">
+    <div class="tags">
+      <span class="tag tag-country">🇧🇷 巴西</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">Brazil's new auto IPI tax policy took effect: locally produced sustainable vehicles qualify for <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="tax exemption / 免税 / 中级">tax exemption</span>. <span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="electric vehicle (EV) / 电动车 / 初级">EV</span> import quota of $463 million with zero tariffs for CKD/SKD within quota.</div>
+    <div class="zh-text">巴西汽车工业品税新政生效：<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="localization / 本地化 / 中级">本土</span>达标新能源车<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="tax exemption / 免税 / 中级">免征</span>IPI。<span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="electric vehicle (EV) / 电动车 / 初级">电动车</span>进口配额4.63亿美元，配额内CKD/SKD零关税。</div>
+    <div class="source-link"><a href="https://finance.sina.com.cn/wm/2026-07-10/doc-inihhzsa3878078.shtml" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="巴西 经济 BYD pushed to localize Brazil factory supply chain, targeting 50% local parts by year-end, aiming to become Brazil's top-selling automaker by 2030. Total investment: 5.5 billion reais (~$1.1 billion). 比亚迪推动巴西工厂供应链本地化，目标年底前50%零件来自本土，2030年成为巴西销量最高车企。总投资55亿雷亚尔(约11亿美元)。">
+    <div class="tags">
+      <span class="tag tag-country">🇧🇷 巴西</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">BYD pushed to <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="localization / 本地化 / 中级">localize</span> Brazil factory supply chain, targeting 50% local parts by year-end, aiming to become Brazil's top-selling automaker by 2030. Total investment: 5.5 billion reais (~$1.1 billion).</div>
+    <div class="zh-text">比亚迪推动巴西工厂供应链<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="localization / 本地化 / 中级">本地化</span>，目标年底前50%零件来自<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="localization / 本地化 / 中级">本土</span>，2030年成为巴西销量最高车企。总投资55亿雷亚尔(约11亿美元)。</div>
+    <div class="source-link"><a href="https://aastocks.com/sc/stocks/news/aafn-con/NOW.1501370/popular-news/AAFN" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="加拿大">
+  <div class="country-header">
+    <span>🇨🇦 加拿大</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">1 条</span>
+  </div>
+
+  <div class="news-card" data-search="加拿大 经济 Canada added 18K jobs in June, unemployment rate edged down to 6.5% (5-month low). Trade surplus widened. Alberta proposed West Coast Pipeline (1M bbl/day) and East pipeline to Ontario (0.5-0.8M bbl/day). 加拿大6月新增1.8万就业，失业率降至6.5%五个月低点。贸易顺差扩大。阿尔伯塔提出西海岸管道(100万桶/日)和东部至安大略管道(50-80万桶/日)。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇦 加拿大</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">Canada added 18K jobs in June, <span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="unemployment rate / 失业率 / 初级">unemployment rate</span> edged down to 6.5% (5-month low). <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="trade surplus / 贸易顺差 / 中级">Trade surplus</span> widened. Alberta proposed West Coast <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="pipeline / 管道 / 中级">Pipeline</span> (1M bbl/day) and East <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="pipeline / 管道 / 中级">pipeline</span> to Ontario (0.5-0.8M bbl/day).</div>
+    <div class="zh-text">加拿大6月新增1.8万就业，<span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="unemployment rate / 失业率 / 初级">失业率</span>降至6.5%五个月低点。<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="trade surplus / 贸易顺差 / 中级">贸易顺差</span>扩大。阿尔伯塔提出西海岸<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="pipeline / 管道 / 中级">管道</span>(100万桶/日)和东部至安大略<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="pipeline / 管道 / 中级">管道</span>(50-80万桶/日)。</div>
+    <div class="source-link"><a href="https://www.atb.com/company/insights/the-twenty-four/atb-economics-the-seven-july-10-2026" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="中国">
+  <div class="country-header">
+    <span>🇨🇳 中国</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">6 条</span>
+  </div>
+
+  <div class="news-card" data-search="中国 环境政策 State Council issued "15th Five-Year" Carbon Peaking Action Plan: by 2030, carbon intensity down 17% from 2025, non-fossil energy to 25%, new energy vehicles to 30% of total fleet. 国务院印发"十五五"碳达峰行动方案：到2030年单位GDP碳排放较2025年降17%，非化石能源占比25%，新能源车保有量占比30%。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇳 中国</span>
+      <span class="tag tag-category">环境政策</span>
+    </div>
+    <div class="en-text">State Council issued "15th Five-Year" <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="carbon peaking / 碳达峰 / 高级">Carbon Peaking</span> Action Plan: by 2030, carbon intensity down 17% from 2025, <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="non-fossil energy / 非化石能源 / 高级">non-fossil energy</span> to 25%, <span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="electric vehicle (EV) / 电动车 / 初级">new energy vehicles</span> to 30% of total fleet.</div>
+    <div class="zh-text">国务院印发"十五五"<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="carbon peaking / 碳达峰 / 高级">碳达峰</span>行动方案：到2030年单位GDP碳排放较2025年降17%，<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="non-fossil energy / 非化石能源 / 高级">非化石能源</span>占比25%，新能源车保有量占比30%。</div>
+    <div class="source-link"><a href="https://new.qq.com/rain/a/20260710A0236500" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="中国 经济 June CPI rose 1.0% YoY, PPI up 4.1% YoY. H1 2026 new energy vehicle production and sales both exceeded 7.4 million units, pure EV sales share rose to ~67%. 6月CPI同比涨1.0%，PPI同比涨4.1%。上半年新能源汽车产销均超740万辆，纯电销量占比升至约67%。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇳 中国</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">June <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="consumer price index (CPI) / 消费者物价指数 / 高级">CPI</span> rose 1.0% YoY, <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="producer price index (PPI) / 生产者物价指数 / 高级">PPI</span> up 4.1% YoY. H1 2026 <span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="electric vehicle (EV) / 电动车 / 初级">new energy vehicle</span> production and sales both exceeded 7.4 million units, pure <span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="electric vehicle (EV) / 电动车 / 初级">EV</span> sales share rose to ~67%.</div>
+    <div class="zh-text">6月<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="consumer price index (CPI) / 消费者物价指数 / 高级">CPI</span>同比涨1.0%，<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="producer price index (PPI) / 生产者物价指数 / 高级">PPI</span>同比涨4.1%。上半年<span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="electric vehicle (EV) / 电动车 / 初级">新能源汽车</span>产销均超740万辆，<span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="electric vehicle (EV) / 电动车 / 初级">纯电</span>销量占比升至约67%。</div>
+    <div class="source-link"><a href="https://finance.sina.com.cn/jjxw/2026-07-10/doc-inihhkuk3993187.shtml" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="中国 社会 Fire at a shoe factory in Jinjiang, Fujian killed 28 people. President Xi ordered thorough investigation of safety hazards. Typhoon Bavi approaching Zhejiang-Fujian coast. 福建泉州晋江一鞋厂火灾致28人死亡。习近平指示深入排查整治风险隐患。台风"巴威"逼近浙闽沿海。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇳 中国</span>
+      <span class="tag tag-category">社会</span>
+    </div>
+    <div class="en-text"><span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="factory fire / 工厂火灾 / 初级">Fire</span> at a shoe factory in Jinjiang, Fujian killed 28 people. President Xi ordered thorough investigation of safety hazards. Typhoon Bavi approaching Zhejiang-Fujian coast.</div>
+    <div class="zh-text">福建泉州晋江一鞋厂<span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="factory fire / 工厂火灾 / 初级">火灾</span>致28人死亡。习近平指示深入排查整治风险隐患。台风"巴威"逼近浙闽沿海。</div>
+    <div class="source-link"><a href="https://ysxw.cctv.cn/article.html?toc_style_id=feeds_default&amp;item_id=9612860387912351825" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="中国 医疗 National Essential Drug List (2026 Edition) released with 794 drugs (476 chemical/biologics, 318 TCM). Takes effect September 1. 《国家基本药物目录(2026版)》发布，收录794种药品（化学药和生物制品476种、中成药318种），9月1日实施。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇳 中国</span>
+      <span class="tag tag-category">医疗</span>
+    </div>
+    <div class="en-text">National <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="essential drug list / 基本药物目录 / 高级">Essential Drug List</span> (2026 Edition) released with 794 drugs (476 chemical/biologics, 318 TCM). Takes effect September 1.</div>
+    <div class="zh-text">《国家<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="essential drug list / 基本药物目录 / 高级">基本药物目录</span>(2026版)》发布，收录794种药品（化学药和生物制品476种、中成药318种），9月1日实施。</div>
+    <div class="source-link"><a href="https://new.qq.com/rain/a/20260710A0236500" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="中国 航天 China successfully launched Long March-10B carrier rocket and achieved world's first controlled recovery of first stage via net-capture system on a seaborne platform. Becomes second country after U.S. with reusable rocket technology. 长征十号乙运载火箭成功发射，实现全球首次海上网系回收一子级。中国成为继美国后第二个掌握可回收火箭技术的国家。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇳 中国</span>
+      <span class="tag tag-category">航天</span>
+    </div>
+    <div class="en-text">China successfully launched Long March-10B carrier rocket and achieved world's first <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="net-capture recovery / 网系回收 / 高级">controlled recovery</span> of first stage via <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="net-capture recovery / 网系回收 / 高级">net-capture</span> system on a seaborne platform. Becomes second country after U.S. with <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="reusable rocket / 可回收火箭 / 中级">reusable rocket</span> technology.</div>
+    <div class="zh-text">长征十号乙运载<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="reusable rocket / 可回收火箭 / 中级">火箭</span>成功发射，实现全球首次海上<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="net-capture recovery / 网系回收 / 高级">网系回收</span>一子级。中国成为继美国后第二个掌握<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="reusable rocket / 可回收火箭 / 中级">可回收火箭</span>技术的国家。</div>
+    <div class="source-link"><a href="https://www.chinadaily.com.cn/a/202607/11/WS6a512adea310986e2b464b1e.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="中国 经济 China's summer grain output topped 150 million tonnes for the first time. H1 auto exports reached 5.096 million units, projected to hit 10 million for the full year. 中国夏粮总产量首次突破1.5亿吨。上半年汽车出口509.6万辆，全年有望突破1000万辆。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇳 中国</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">China's summer grain output topped 150 million tonnes for the first time. H1 <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="auto export / 汽车出口 / 中级">auto exports</span> reached 5.096 million units, projected to hit 10 million for the full year.</div>
+    <div class="zh-text">中国夏粮总产量首次突破1.5亿吨。上半年<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="auto export / 汽车出口 / 中级">汽车出口</span>509.6万辆，全年有望突破1000万辆。</div>
+    <div class="source-link"><a href="https://news.cctv.com/2026/07/10/ARTIPLjuz5XNhy63Je5diu77260710.shtml" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="德国">
+  <div class="country-header">
+    <span>🇩🇪 德国</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="德国 经济 Volkswagen considering global layoffs of up to 100,000-120,000 positions and closure of four German plants. Group operating profit fell over 50% in FY2025. 大众汽车酝酿全球裁员10-12万人，关停四家德国工厂。2025财年集团营业利润暴跌超五成。">
+    <div class="tags">
+      <span class="tag tag-country">🇩🇪 德国</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">Volkswagen considering global <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="layoffs / 裁员 / 中级">layoffs</span> of up to 100,000-120,000 positions and closure of four German plants. Group operating profit fell over 50% in FY2025.</div>
+    <div class="zh-text">大众汽车酝酿全球<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="layoffs / 裁员 / 中级">裁员</span>10-12万人，关停四家德国工厂。2025财年集团营业利润暴跌超五成。</div>
+    <div class="source-link"><a href="https://www.toutiao.com/article/7660432266509730339" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="德国 经济 German exports rose 0.9% MoM in May for fourth consecutive month, with exports to the U.S. surging 23.1%. Imports fell 2.5%. 德国5月出口环比增0.9%连续第四个月增长，对美出口飙升23.1%。进口环比降2.5%。">
+    <div class="tags">
+      <span class="tag tag-country">🇩🇪 德国</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">German <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="exports / 出口 / 中级">exports</span> rose 0.9% MoM in May for fourth consecutive month, with exports to the U.S. surging 23.1%. Imports fell 2.5%.</div>
+    <div class="zh-text">德国5月<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="exports / 出口 / 中级">出口</span>环比增0.9%连续第四个月增长，对美<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="exports / 出口 / 中级">出口</span>飙升23.1%。进口环比降2.5%。</div>
+    <div class="source-link"><a href="https://finance.sina.com.cn/money/bond/2026-07-10/doc-inihhkuh7225646.shtml" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="西班牙">
+  <div class="country-header">
+    <span>🇪🇸 西班牙</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">3 条</span>
+  </div>
+
+  <div class="news-card" data-search="西班牙 灾害 Wildfire in Almeria province killed at least 12 people (4 possibly British), 23 missing, 8 injured. ~1,000 evacuated. Caused by fallen power line amid heatwave and strong winds. Deadliest wildfire in Spain since 2005. 西班牙阿尔梅里亚省森林火灾至少12人死亡(4人或为英国人)、23人失联、8人受伤。约1000人疏散。高温强风下电线掉落引发。为西班牙2005年以来最致命野火。">
+    <div class="tags">
+      <span class="tag tag-country">🇪🇸 西班牙</span>
+      <span class="tag tag-category">灾害</span>
+    </div>
+    <div class="en-text"><span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="wildfire / 森林火灾 / 初级">Wildfire</span> in Almeria province killed at least 12 people (4 possibly British), 23 missing, 8 injured. ~1,000 evacuated. Caused by fallen power line amid <span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="heatwave / 热浪 / 初级">heatwave</span> and strong winds. Deadliest <span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="wildfire / 森林火灾 / 初级">wildfire</span> in Spain since 2005.</div>
+    <div class="zh-text">西班牙阿尔梅里亚省<span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="wildfire / 森林火灾 / 初级">森林火灾</span>至少12人死亡(4人或为英国人)、23人失联、8人受伤。约1000人疏散。<span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="heatwave / 热浪 / 初级">高温</span>强风下电线掉落引发。为西班牙2005年以来最致命野火。</div>
+    <div class="source-link"><a href="https://www.whcp.org/2026-07-10/one-of-spains-deadliest-wildfires-kills-at-least-12-people-with-23-others-missing" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="西班牙 旅游 Spain expects to welcome 100 million foreign tourists in 2026. Summer tourism revenue projected at 64 billion euros (+10% YoY). Middle East conflict diverted tourists to southern Mediterranean. 西班牙预计2026年接待1亿外国游客。夏季旅游收入预计640亿欧元(+10%同比)。中东冲突使游客转向南地中海地区。">
+    <div class="tags">
+      <span class="tag tag-country">🇪🇸 西班牙</span>
+      <span class="tag tag-category">旅游</span>
+    </div>
+    <div class="en-text">Spain expects to welcome 100 million foreign tourists in 2026. Summer <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="tourism revenue / 旅游收入 / 中级">tourism revenue</span> projected at 64 billion euros (+10% YoY). Middle East conflict diverted tourists to southern Mediterranean.</div>
+    <div class="zh-text">西班牙预计2026年接待1亿外国游客。夏季<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="tourism revenue / 旅游收入 / 中级">旅游收入</span>预计640亿欧元(+10%同比)。中东冲突使游客转向南地中海地区。</div>
+    <div class="source-link"><a href="https://k.sina.com.cn/article_7879923946_1d5ae18ea02003nofw.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="西班牙 地缘政治 Trump threatened to halt all trade with Spain over NATO spending dispute. Spain refused 5% GDP defense spending target and denied U.S. use of bases for Iran strikes. EU backed Spain. 特朗普威胁中断与西班牙所有贸易，因北约军费争议。西班牙拒绝5%GDP国防开支目标并拒绝美军使用基地打击伊朗。欧盟声援西班牙。">
+    <div class="tags">
+      <span class="tag tag-country">🇪🇸 西班牙</span>
+      <span class="tag tag-category">地缘政治</span>
+    </div>
+    <div class="en-text">Trump threatened to halt all trade with Spain over <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="NATO defense spending / 北约军费 / 高级">NATO spending</span> dispute. Spain refused 5% GDP <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="NATO defense spending / 北约军费 / 高级">defense spending</span> target and denied U.S. use of bases for Iran strikes. EU backed Spain.</div>
+    <div class="zh-text">特朗普威胁中断与西班牙所有贸易，因<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="NATO defense spending / 北约军费 / 高级">北约军费</span>争议。西班牙拒绝5%GDP国防开支目标并拒绝美军使用基地打击伊朗。欧盟声援西班牙。</div>
+    <div class="source-link"><a href="https://english.news.cn/20260711/b3df1b04b0e44ba0ad63cfde5307b766/c.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="法国">
+  <div class="country-header">
+    <span>🇫🇷 法国</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">4 条</span>
+  </div>
+
+  <div class="news-card" data-search="法国 经济 France lowered 2026 growth forecast to 0.7% from 0.9%. Trade deficit widened to nearly 7 billion euros. PM announced 3 billion euros in additional savings. 法国下调2026年增长预期至0.7%。贸易逆差扩大至近70亿欧元。总理宣布额外削减30亿欧元支出。">
+    <div class="tags">
+      <span class="tag tag-country">🇫🇷 法国</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">France lowered 2026 <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="growth forecast / 增长预期 / 中级">growth forecast</span> to 0.7% from 0.9%. <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="trade deficit / 贸易逆差 / 中级">Trade deficit</span> widened to nearly 7 billion euros. PM announced 3 billion euros in additional savings.</div>
+    <div class="zh-text">法国下调2026年<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="growth forecast / 增长预期 / 中级">增长预期</span>至0.7%。<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="trade deficit / 贸易逆差 / 中级">贸易逆差</span>扩大至近70亿欧元。总理宣布额外削减30亿欧元支出。</div>
+    <div class="source-link"><a href="https://www.paristimes.com/" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="法国 体育 France beat Morocco 2-0 to reach World Cup semifinals. Mbappe scored his 8th goal of the tournament, tying Messi's record. France reached semifinals for third consecutive World Cup. 法国2-0胜摩洛哥晋级世界杯四强。姆巴佩攻入本届第8球追平梅西。法国连续三届世界杯闯入半决赛。">
+    <div class="tags">
+      <span class="tag tag-country">🇫🇷 法国</span>
+      <span class="tag tag-category">体育</span>
+    </div>
+    <div class="en-text">France beat Morocco 2-0 to reach World Cup <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="semifinals / 半决赛 / 中级">semifinals</span>. Mbappe scored his 8th goal of the tournament, tying Messi's record. France reached semifinals for third consecutive World Cup.</div>
+    <div class="zh-text">法国2-0胜摩洛哥晋级世界杯<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="semifinals / 半决赛 / 中级">半决赛</span>。姆巴佩攻入本届第8球追平梅西。法国连续三届世界杯闯入半决赛。</div>
+    <div class="source-link"><a href="https://new.qq.com/rain/a/20260710A060RF00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="法国 地缘政治 Trump threatened 100% tariffs on French wine unless France rescinds its 3% digital tax on U.S. tech giants, escalating the transatlantic trade dispute. 特朗普警告若法国不取消对美国科技巨头的3%数字税将对法国葡萄酒征100%关税，升级跨大西洋贸易争端。">
+    <div class="tags">
+      <span class="tag tag-country">🇫🇷 法国</span>
+      <span class="tag tag-category">地缘政治</span>
+    </div>
+    <div class="en-text">Trump threatened 100% tariffs on French wine unless France rescinds its 3% <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="digital tax / 数字税 / 高级">digital tax</span> on U.S. tech giants, escalating the transatlantic trade dispute.</div>
+    <div class="zh-text">特朗普警告若法国不取消对美国科技巨头的3%<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="digital tax / 数字税 / 高级">数字税</span>将对法国葡萄酒征100%关税，升级跨大西洋贸易争端。</div>
+    <div class="source-link"><a href="https://new.qq.com/rain/a/20260710A060RF00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="法国 科技 Paris AI startup raised $300M+ for cloud infrastructure expansion. French aerospace startup successfully tested reusable rocket at Guiana Space Centre. France approved 6 new nuclear reactors. 巴黎AI初创融资超3亿美元扩展云基础设施。法国航天初创在圭亚那成功测试可回收火箭。法国批准新建6座核反应堆。">
+    <div class="tags">
+      <span class="tag tag-country">🇫🇷 法国</span>
+      <span class="tag tag-category">科技</span>
+    </div>
+    <div class="en-text">Paris AI startup raised $300M+ for cloud infrastructure expansion. French aerospace startup successfully tested <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="reusable rocket / 可回收火箭 / 中级">reusable rocket</span> at Guiana Space Centre. France approved 6 new <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="nuclear reactor / 核反应堆 / 高级">nuclear reactors</span>.</div>
+    <div class="zh-text">巴黎AI初创融资超3亿美元扩展云基础设施。法国航天初创在圭亚那成功测试<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="reusable rocket / 可回收火箭 / 中级">可回收火箭</span>。法国批准新建6座<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="nuclear reactor / 核反应堆 / 高级">核反应堆</span>。</div>
+    <div class="source-link"><a href="https://www.paristimes.com/" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="英国">
+  <div class="country-header">
+    <span>🇬🇧 英国</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">1 条</span>
+  </div>
+
+  <div class="news-card" data-search="英国 经济 UK unemployment rate hit 5-year high while wage growth slowed. UK inflation rose to 3%, core inflation at 3.7%, highest since April 2024. 英国失业率升至五年最高，薪酬增长放缓。英国通胀率升至3%，核心通胀3.7%，创2024年4月以来最高。">
+    <div class="tags">
+      <span class="tag tag-country">🇬🇧 英国</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">UK <span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="unemployment rate / 失业率 / 初级">unemployment rate</span> hit 5-year high while wage growth slowed. UK inflation rose to 3%, <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="core inflation / 核心通胀 / 高级">core inflation</span> at 3.7%, highest since April 2024.</div>
+    <div class="zh-text">英国<span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="unemployment rate / 失业率 / 初级">失业率</span>升至五年最高，薪酬增长放缓。英国通胀率升至3%，<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="core inflation / 核心通胀 / 高级">核心通胀</span>3.7%，创2024年4月以来最高。</div>
+    <div class="source-link"><a href="https://www.aastocks.com/sc/funds/news/comment.aspx?cur=n/a&amp;id=now.1503674&amp;source=aafn" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="印度">
+  <div class="country-header">
+    <span>🇮🇳 印度</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="印度 经济 World Bank approved $890 million for India's rooftop solar programme. Indian Bank Q1 profit rose 10% to Rs 3,273 crore. 世界银行批准8.9亿美元支持印度屋顶太阳能计划。印度银行Q1利润增10%至327.3亿卢比。">
+    <div class="tags">
+      <span class="tag tag-country">🇮🇳 印度</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">World Bank approved $890 million for India's <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="rooftop solar / 屋顶太阳能 / 中级">rooftop solar</span> programme. Indian Bank Q1 profit rose 10% to Rs 3,273 crore.</div>
+    <div class="zh-text">世界银行批准8.9亿美元支持印度<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="rooftop solar / 屋顶太阳能 / 中级">屋顶太阳能</span>计划。印度银行Q1利润增10%至327.3亿卢比。</div>
+    <div class="source-link"><a href="https://thehindubusinessline.com/markets/sensex-nifty50-today-stock-market-live-updates-10th-july-2026/article71203430.ece" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="印度 经济 India eliminated import duties on key smartphone components (5%-7.5% cuts) through March 2029, benefiting Apple's iPhone manufacturing in India. More sugarcane diverted to ethanol production, reshaping global sugar trade. 印度取消智能手机关键零部件进口关税(降幅5%-7.5%)至2029年3月，利好苹果印度制造。更多甘蔗转向乙醇生产，重塑全球食糖贸易格局。">
+    <div class="tags">
+      <span class="tag tag-country">🇮🇳 印度</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">India eliminated <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="import duty / 进口关税 / 中级">import duties</span> on key smartphone components (5%-7.5% cuts) through March 2029, benefiting Apple's iPhone manufacturing in India. More sugarcane diverted to <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="ethanol blending / 乙醇混合 / 高级">ethanol</span> production, reshaping global sugar trade.</div>
+    <div class="zh-text">印度取消智能手机关键零部件<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="import duty / 进口关税 / 中级">进口关税</span>(降幅5%-7.5%)至2029年3月，利好苹果印度制造。更多甘蔗转向<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="ethanol blending / 乙醇混合 / 高级">乙醇</span>生产，重塑全球食糖贸易格局。</div>
+    <div class="source-link"><a href="https://www.163.com/dy/article/L1FDBC8O0511CPVM.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="意大利">
+  <div class="country-header">
+    <span>🇮🇹 意大利</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">1 条</span>
+  </div>
+
+  <div class="news-card" data-search="意大利 社会 A new heatwave hit Italy with temperatures consistently above 35C and peaks exceeding 40C. Louvre Museum in Paris also shortened hours due to heatwave across Europe. 新一轮热浪席卷意大利，均温持续超35°C，峰值超40°C。巴黎卢浮宫因全欧热浪缩短开放时间。">
+    <div class="tags">
+      <span class="tag tag-country">🇮🇹 意大利</span>
+      <span class="tag tag-category">社会</span>
+    </div>
+    <div class="en-text">A new <span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="heatwave / 热浪 / 初级">heatwave</span> hit Italy with temperatures consistently above 35C and peaks exceeding 40C. Louvre Museum in Paris also shortened hours due to <span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="heatwave / 热浪 / 初级">heatwave</span> across Europe.</div>
+    <div class="zh-text">新一轮<span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="heatwave / 热浪 / 初级">热浪</span>席卷意大利，均温持续超35°C，峰值超40°C。巴黎卢浮宫因全欧<span class="kw" style="color:#16a34a;background:#dcfce7;font-weight:700;" title="heatwave / 热浪 / 初级">热浪</span>缩短开放时间。</div>
+    <div class="source-link"><a href="https://www.163.com/dy/article/L1ATBOPH055014E1.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="日本">
+  <div class="country-header">
+    <span>🇯🇵 日本</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">4 条</span>
+  </div>
+
+  <div class="news-card" data-search="日本 经济 Japan corporate bankruptcies hit 5,346 in H1 2026, up 7% YoY, a 12-year high. Ramen shop bankruptcies surged 44.4%. Yen fell past 162 per USD, a 40-year low. 日本上半年企业破产5346家同比增7%，创12年新高。拉面店破产增44.4%。日元跌破162兑1美元，创40年新低。">
+    <div class="tags">
+      <span class="tag tag-country">🇯🇵 日本</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">Japan <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="corporate bankruptcy / 企业破产 / 中级">corporate bankruptcies</span> hit 5,346 in H1 2026, up 7% YoY, a 12-year high. Ramen shop <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="corporate bankruptcy / 企业破产 / 中级">bankruptcies</span> surged 44.4%. Yen fell past 162 per USD, a 40-year low.</div>
+    <div class="zh-text">日本上半年<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="corporate bankruptcy / 企业破产 / 中级">企业破产</span>5346家同比增7%，创12年新高。拉面店<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="corporate bankruptcy / 企业破产 / 中级">破产</span>增44.4%。日元跌破162兑1美元，创40年新低。</div>
+    <div class="source-link"><a href="https://new.qq.com/rain/a/20260711A023MR00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="日本 经济 Japan June PPI surged 7.1% YoY, fastest since March 2023. BOJ expected to maintain 1% rate but retain tightening guidance. Cost-push inflation accelerating. 日本6月PPI飙升7.1%创2023年3月以来最快。央行预计维持1%利率但保留加息指引。成本推动型通胀加速传导。">
+    <div class="tags">
+      <span class="tag tag-country">🇯🇵 日本</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">Japan June <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="producer price index (PPI) / 生产者物价指数 / 高级">PPI</span> surged 7.1% YoY, fastest since March 2023. BOJ expected to maintain 1% rate but retain tightening guidance. <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="cost-push inflation / 成本推动型通胀 / 高级">Cost-push inflation</span> accelerating.</div>
+    <div class="zh-text">日本6月<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="producer price index (PPI) / 生产者物价指数 / 高级">PPI</span>飙升7.1%创2023年3月以来最快。央行预计维持1%<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="central bank rate / 央行利率 / 中级">利率</span>但保留加息指引。<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="cost-push inflation / 成本推动型通胀 / 高级">成本推动型通胀</span>加速传导。</div>
+    <div class="source-link"><a href="https://new.qq.com/rain/a/20260711A023MR00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="日本 科技 Japan is testing semiconductor manufacturing in low Earth orbit. Sony and University of Tokyo created a next-generation talent fund. Tohoku University drug startup topped Japan's June funding ranking. 日本正在测试近地轨道半导体制造。索尼与东京大学设立下一代人才基金。东北大学药企初创领跑6月融资排名。">
+    <div class="tags">
+      <span class="tag tag-country">🇯🇵 日本</span>
+      <span class="tag tag-category">科技</span>
+    </div>
+    <div class="en-text">Japan is testing <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="semiconductor / 半导体 / 中级">semiconductor</span> manufacturing in low Earth orbit. Sony and University of Tokyo created a next-generation talent fund. Tohoku University drug startup topped Japan's June funding ranking.</div>
+    <div class="zh-text">日本正在测试近地轨道<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="semiconductor / 半导体 / 中级">半导体</span>制造。索尼与东京大学设立下一代人才基金。东北大学药企初创领跑6月融资排名。</div>
+    <div class="source-link"><a href="https://japan.co.jp/e/news-2026-07-10.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="日本 社会 72.2% of accommodation facilities face labor shortages. Japan's maglev project approved by Shizuoka Prefecture, paving way for $2 trillion megaregion between Tokyo, Nagoya and Osaka. 72.2%的住宿设施面临劳动力短缺。日本磁悬浮项目获静冈县批准，将打造东京-名古屋-大阪2万亿美元超级经济圈。">
+    <div class="tags">
+      <span class="tag tag-country">🇯🇵 日本</span>
+      <span class="tag tag-category">社会</span>
+    </div>
+    <div class="en-text">72.2% of accommodation facilities face <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="labor shortage / 劳动力短缺 / 中级">labor shortages</span>. Japan's <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="maglev train / 磁悬浮列车 / 高级">maglev</span> project approved by Shizuoka Prefecture, paving way for $2 trillion megaregion between Tokyo, Nagoya and Osaka.</div>
+    <div class="zh-text">72.2%的住宿设施面临<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="labor shortage / 劳动力短缺 / 中级">劳动力短缺</span>。日本<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="maglev train / 磁悬浮列车 / 高级">磁悬浮</span>项目获静冈县批准，将打造东京-名古屋-大阪2万亿美元超级经济圈。</div>
+    <div class="source-link"><a href="https://www.eu-japan.eu/news/japanese-economic-and-business-weekly-newsletter-04-july-10-july2026" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="韩国">
+  <div class="country-header">
+    <span>🇰🇷 韩国</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="韩国 经济 SK Hynix ADR debuted on Nasdaq at $149/share, raising $26.5 billion — largest foreign IPO in U.S. history. Oversubscribed 7x. KOSPI hit 5% intraday circuit breaker for third time this week. SK海力士ADR纳斯达克上市，每股149美元，募资265亿美元——创外国企业在美IPO纪录。超额认购7倍。KOSPI本周第三次触发5%熔断。">
+    <div class="tags">
+      <span class="tag tag-country">🇰🇷 韩国</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">SK Hynix ADR debuted on Nasdaq at $149/share, raising $26.5 billion — largest foreign <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="initial public offering (IPO) / 首次公开募股 / 高级">IPO</span> in U.S. history. Oversubscribed 7x. KOSPI hit 5% intraday <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="circuit breaker / 熔断机制 / 高级">circuit breaker</span> for third time this week.</div>
+    <div class="zh-text">SK海力士ADR纳斯达克<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="initial public offering (IPO) / 首次公开募股 / 高级">上市</span>，每股149美元，募资265亿美元——创外国企业在美<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="initial public offering (IPO) / 首次公开募股 / 高级">IPO</span>纪录。超额认购7倍。KOSPI本周第三次触发5%<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="circuit breaker / 熔断机制 / 高级">熔断</span>。</div>
+    <div class="source-link"><a href="https://en.yna.co.kr/view/AEN20260710008551320" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="韩国 科技 Samsung and SK Hynix announced combined 4,800 trillion won (~$3.5 trillion) AI chip investment plan over next 10 years, targeting high-bandwidth memory dominance for AI infrastructure. 三星与SK海力士宣布未来10年合计4800万亿韩元(约3.5万亿美元)AI芯片投资计划，瞄准AI基础设施所需的高带宽存储器主导权。">
+    <div class="tags">
+      <span class="tag tag-country">🇰🇷 韩国</span>
+      <span class="tag tag-category">科技</span>
+    </div>
+    <div class="en-text">Samsung and SK Hynix announced combined 4,800 trillion won (~$3.5 trillion) <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="semiconductor / 半导体 / 中级">AI chip</span> investment plan over next 10 years, targeting <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="high-bandwidth memory (HBM) / 高带宽存储器 / 高级">high-bandwidth memory</span> dominance for AI infrastructure.</div>
+    <div class="zh-text">三星与SK海力士宣布未来10年合计4800万亿韩元(约3.5万亿美元)<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="semiconductor / 半导体 / 中级">AI芯片</span>投资计划，瞄准AI基础设施所需的<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="high-bandwidth memory (HBM) / 高带宽存储器 / 高级">高带宽存储器</span>主导权。</div>
+    <div class="source-link"><a href="https://www.toutiao.com/article/7659981775632007726" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="墨西哥">
+  <div class="country-header">
+    <span>🇲🇽 墨西哥</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="墨西哥 金融科技 Nu Mexico received banking license authorization from CNBV, becoming the largest digital bank in the country with 15M+ customers. Plans $4.2B investment through 2030. Nu Mexico获墨西哥银行业监管机构银行牌照批准，成为该国最大数字银行（1500万+客户）。计划2030年前投资42亿美元。">
+    <div class="tags">
+      <span class="tag tag-country">🇲🇽 墨西哥</span>
+      <span class="tag tag-category">金融科技</span>
+    </div>
+    <div class="en-text">Nu Mexico received banking license authorization from CNBV, becoming the largest <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="digital bank / 数字银行 / 中级">digital bank</span> in the country with 15M+ customers. Plans $4.2B investment through 2030.</div>
+    <div class="zh-text">Nu Mexico获墨西哥银行业监管机构银行牌照批准，成为该国最大<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="digital bank / 数字银行 / 中级">数字银行</span>（1500万+客户）。计划2030年前投资42亿美元。</div>
+    <div class="source-link"><a href="https://stockhouse.com/news/press-releases/2026/07/10/nu-mexico-receives-authorization-to-begin-operations-as-a-bank" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="墨西哥 文化 Ministry of Culture launched "Taller Original" program protecting artisanal community rights. 17,878 cultural assets recovered since the Fourth Transformation. 文化部启动"原创工坊"计划保护手工艺社区权利。自第四次转型以来回收17878件文化资产。">
+    <div class="tags">
+      <span class="tag tag-country">🇲🇽 墨西哥</span>
+      <span class="tag tag-category">文化</span>
+    </div>
+    <div class="en-text">Ministry of Culture launched "Taller Original" program protecting artisanal community rights. 17,878 <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="cultural asset / 文化资产 / 中级">cultural assets</span> recovered since the Fourth Transformation.</div>
+    <div class="zh-text">文化部启动"原创工坊"计划保护手工艺社区权利。自第四次转型以来<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="net-capture recovery / 网系回收 / 高级">回收</span>17878件<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="cultural asset / 文化资产 / 中级">文化资产</span>。</div>
+    <div class="source-link"><a href="https://www.heraldousa.com/mexico-en/2026/7/10/the-peoples-mananera-morning-presidential-press-conference-friday-july-10-2026-32253.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="俄罗斯">
+  <div class="country-header">
+    <span>🇷🇺 俄罗斯</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="俄罗斯 地缘政治 Russia imposed diesel export ban through July 31 after Ukrainian drone strikes crippled refineries. Russia to import fuel for first time. Gasoline output down to 65% of seasonal demand. 乌克兰无人机重创炼油厂后俄罗斯实施柴油出口禁令至7月31日。俄罗斯首次进口燃料。汽油产量降至季节性需求的65%。">
+    <div class="tags">
+      <span class="tag tag-country">🇷🇺 俄罗斯</span>
+      <span class="tag tag-category">地缘政治</span>
+    </div>
+    <div class="en-text">Russia imposed <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="diesel export ban / 柴油出口禁令 / 高级">diesel export ban</span> through July 31 after Ukrainian <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="drone strike / 无人机打击 / 中级">drone strikes</span> crippled <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="refinery / 炼油厂 / 中级">refineries</span>. Russia to import fuel for first time. Gasoline output down to 65% of seasonal demand.</div>
+    <div class="zh-text">乌克兰<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="drone strike / 无人机打击 / 中级">无人机</span>重创<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="refinery / 炼油厂 / 中级">炼油厂</span>后俄罗斯实施<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="diesel export ban / 柴油出口禁令 / 高级">柴油出口禁令</span>至7月31日。俄罗斯首次进口燃料。汽油产量降至季节性需求的65%。</div>
+    <div class="source-link"><a href="https://english.news.cn/20260711/b661aed917b54648b233433be6669af4/c.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="俄罗斯 地缘政治 Ukraine established "Long-Range Strike Command" to systematically target Russian energy infrastructure. Drones struck Ilsky and Ust-Luga refineries simultaneously, hitting 18 Russian vessels. 乌克兰成立"远程打击司令部"系统化打击俄能源设施。无人机同日袭击伊尔斯基和乌斯季卢加炼油厂，击中18艘俄船只。">
+    <div class="tags">
+      <span class="tag tag-country">🇷🇺 俄罗斯</span>
+      <span class="tag tag-category">地缘政治</span>
+    </div>
+    <div class="en-text">Ukraine established "Long-Range Strike Command" to systematically target Russian energy infrastructure. <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="drone strike / 无人机打击 / 中级">Drones</span> struck Ilsky and Ust-Luga <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="refinery / 炼油厂 / 中级">refineries</span> simultaneously, hitting 18 Russian vessels.</div>
+    <div class="zh-text">乌克兰成立"远程打击司令部"系统化打击俄能源设施。<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="drone strike / 无人机打击 / 中级">无人机</span>同日袭击伊尔斯基和乌斯季卢加<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="refinery / 炼油厂 / 中级">炼油厂</span>，击中18艘俄船只。</div>
+    <div class="source-link"><a href="https://kyivindependent.com/major-russian-oil-refinery-reportedly-struck-by-ukraine" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="美国">
+  <div class="country-header">
+    <span>🇺🇸 美国</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">5 条</span>
+  </div>
+
+  <div class="news-card" data-search="美国 经济 U.S. trade deficit surged 42.2% in May to $77.6 billion, driven by AI-related capital goods imports hitting a record $128 billion. Exports fell 3.2% to $317.7 billion. 美国5月贸易逆差大幅攀升42.2%至776亿美元，AI相关资本品进口飙升至1280亿美元历史新高。出口下滑3.2%至3177亿美元。">
+    <div class="tags">
+      <span class="tag tag-country">🇺🇸 美国</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">U.S. <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="trade deficit / 贸易逆差 / 中级">trade deficit</span> surged 42.2% in May to $77.6 billion, driven by AI-related <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="capital goods / 资本品 / 高级">capital goods</span> imports hitting a record $128 billion. Exports fell 3.2% to $317.7 billion.</div>
+    <div class="zh-text">美国5月<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="trade deficit / 贸易逆差 / 中级">贸易逆差</span>大幅攀升42.2%至776亿美元，AI相关<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="capital goods / 资本品 / 高级">资本品</span>进口飙升至1280亿美元历史新高。出口下滑3.2%至3177亿美元。</div>
+    <div class="source-link"><a href="https://www.163.com/dy/article/L1G2BJ5E0514BQ68.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="美国 科技 OpenAI officially launched GPT-5.6 series (Sol/Terra/Luna) and ChatGPT Work agent. CEO Altman said "many adjustments" were made after consulting with the U.S. government. Flagship Sol costs 1/4 of competitors. OpenAI正式发布GPT-5.6系列模型(Sol/Terra/Luna)及ChatGPT Work智能体。CEO Altman称与美政府沟通后做出"许多调整"。旗舰版Sol成本仅为竞品1/4。">
+    <div class="tags">
+      <span class="tag tag-country">🇺🇸 美国</span>
+      <span class="tag tag-category">科技</span>
+    </div>
+    <div class="en-text">OpenAI officially launched GPT-5.6 series (Sol/Terra/Luna) and <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="AI agent / 智能体 / 高级">ChatGPT Work agent</span>. CEO Altman said "many adjustments" were made after consulting with the U.S. government. Flagship Sol costs 1/4 of competitors.</div>
+    <div class="zh-text">OpenAI正式发布GPT-5.6系列模型(Sol/Terra/Luna)及ChatGPT Work<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="AI agent / 智能体 / 高级">智能体</span>。CEO Altman称与美政府沟通后做出"许多调整"。旗舰版Sol成本仅为竞品1/4。</div>
+    <div class="source-link"><a href="https://new.qq.com/rain/a/20260710A02E4G00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="美国 科技 Meta launched Muse Spark 1.1 flagship model surpassing Google Gemini. Announced self-developed AI chip "Iris" to begin mass production in September. First-ever paid model priced at 1/4 of competitors. Meta推出旗舰模型Muse Spark 1.1超越谷歌Gemini。宣布自研AI芯片"Iris"9月量产。首次推出付费模型，定价仅为竞品四分之一。">
+    <div class="tags">
+      <span class="tag tag-country">🇺🇸 美国</span>
+      <span class="tag tag-category">科技</span>
+    </div>
+    <div class="en-text">Meta launched Muse Spark 1.1 flagship model surpassing Google Gemini. Announced self-developed <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="semiconductor / 半导体 / 中级">AI chip</span> "Iris" to begin <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="mass production / 量产 / 中级">mass production</span> in September. First-ever paid model priced at 1/4 of competitors.</div>
+    <div class="zh-text">Meta推出旗舰模型Muse Spark 1.1超越谷歌Gemini。宣布自研<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="semiconductor / 半导体 / 中级">AI芯片</span>"Iris"9月<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="mass production / 量产 / 中级">量产</span>。首次推出付费模型，定价仅为竞品四分之一。</div>
+    <div class="source-link"><a href="https://new.qq.com/rain/a/20260710A02AT100" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="美国 科技 Micron Technology expanded U.S. investment plan to $250 billion, targeting 40% DRAM production in the U.S. by 2035. 美光科技将对美投资计划扩大至2500亿美元，目标2035年前40%的DRAM在美国本土生产。">
+    <div class="tags">
+      <span class="tag tag-country">🇺🇸 美国</span>
+      <span class="tag tag-category">科技</span>
+    </div>
+    <div class="en-text">Micron Technology expanded U.S. <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="investment plan / 投资计划 / 中级">investment plan</span> to $250 billion, targeting 40% DRAM production in the U.S. by 2035.</div>
+    <div class="zh-text">美光科技将对美<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="investment plan / 投资计划 / 中级">投资计划</span>扩大至2500亿美元，目标2035年前40%的DRAM在美国<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="localization / 本地化 / 中级">本土</span>生产。</div>
+    <div class="source-link"><a href="https://xueqiu.com/1689987310/399380536" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="美国 经济 SK Hynix debuted on Nasdaq at $149/share, raising ~$26.5 billion, the largest foreign IPO in U.S. history. Oversubscribed 7x, attracting global tech funds and sovereign wealth funds. SK海力士纳斯达克上市，发行价149美元，募资约265亿美元，创外国企业在美IPO纪录。超额认购7倍，吸引全球科技基金和主权财富基金。">
+    <div class="tags">
+      <span class="tag tag-country">🇺🇸 美国</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">SK Hynix debuted on Nasdaq at $149/share, raising ~$26.5 billion, the largest foreign <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="initial public offering (IPO) / 首次公开募股 / 高级">IPO</span> in U.S. history. Oversubscribed 7x, attracting global tech funds and sovereign wealth funds.</div>
+    <div class="zh-text">SK海力士纳斯达克<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="initial public offering (IPO) / 首次公开募股 / 高级">上市</span>，发行价149美元，募资约265亿美元，创外国企业在美<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="initial public offering (IPO) / 首次公开募股 / 高级">IPO</span>纪录。超额认购7倍，吸引全球科技基金和主权财富基金。</div>
+    <div class="source-link"><a href="https://www.163.com/dy/article/L1FJC7VR0519DDQ2.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="全球">
+  <div class="country-header">
+    <span>🌍 全球</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">5 条</span>
+  </div>
+
+  <div class="news-card" data-search="全球 医疗 FDA approved Keytruda + enfortumab vedotin for muscle-invasive bladder cancer. Dysport (botulinum toxin) achieved positive Phase III results for both episodic and chronic migraine. FDA批准Keytruda联合ADC治疗肌层浸润性膀胱癌。Dysport(肉毒毒素)治疗发作性和慢性偏头痛两项III期试验达主要终点。">
+    <div class="tags">
+      <span class="tag tag-country">🌍 全球</span>
+      <span class="tag tag-category">医疗</span>
+    </div>
+    <div class="en-text">FDA approved Keytruda + enfortumab vedotin for muscle-invasive <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="bladder cancer / 膀胱癌 / 中级">bladder cancer</span>. Dysport (botulinum toxin) achieved positive <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="Phase III clinical trial / III期临床试验 / 高级">Phase III</span> results for both episodic and chronic migraine.</div>
+    <div class="zh-text">FDA批准Keytruda联合ADC治疗肌层浸润性<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="bladder cancer / 膀胱癌 / 中级">膀胱癌</span>。Dysport(肉毒毒素)治疗发作性和慢性偏头痛两项<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="Phase III clinical trial / III期临床试验 / 高级">III期</span>试验达主要终点。</div>
+    <div class="source-link"><a href="https://new.qq.com/rain/a/20260711A02HVU00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="全球 医疗 New HIV vaccine generated broadly neutralizing antibodies in primates for the first time, published in Nature. Frog bacterium eliminated colorectal tumors in mice with single dose. 新型HIV疫苗首次在灵长类动物体内产生广泛中和抗体，《自然》发表。青蛙肠道细菌单剂量消除小鼠结直肠肿瘤。">
+    <div class="tags">
+      <span class="tag tag-country">🌍 全球</span>
+      <span class="tag tag-category">医疗</span>
+    </div>
+    <div class="en-text">New HIV vaccine generated <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="broadly neutralizing antibody / 广泛中和抗体 / 高级">broadly neutralizing antibodies</span> in primates for the first time, published in Nature. Frog bacterium eliminated colorectal tumors in mice with single dose.</div>
+    <div class="zh-text">新型HIV疫苗首次在灵长类动物体内产生<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="broadly neutralizing antibody / 广泛中和抗体 / 高级">广泛中和抗体</span>，《自然》发表。青蛙肠道细菌单剂量消除小鼠结直肠肿瘤。</div>
+    <div class="source-link"><a href="https://www.163.com/dy/article/L1GGGMSK055689Q9.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="全球 科技 New MRI metamaterial breakthrough enables clearer brain and eye imaging in less time. Oxford created statin side-effect risk calculator. KAIST developed spray-on powder stopping bleeding in ~1 second. MRI超材料突破实现更清晰脑部和眼部成像。牛津大学创建他汀副作用风险计算器。KAIST开发喷雾粉末约1秒止血。">
+    <div class="tags">
+      <span class="tag tag-country">🌍 全球</span>
+      <span class="tag tag-category">科技</span>
+    </div>
+    <div class="en-text">New <span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="MRI metamaterial / MRI超材料 / 高级">MRI metamaterial</span> breakthrough enables clearer brain and eye imaging in less time. Oxford created statin side-effect risk calculator. KAIST developed spray-on powder stopping bleeding in ~1 second.</div>
+    <div class="zh-text"><span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="MRI metamaterial / MRI超材料 / 高级">MRI超材料</span>突破实现更清晰脑部和眼部成像。牛津大学创建他汀副作用风险计算器。KAIST开发喷雾粉末约1秒止血。</div>
+    <div class="source-link"><a href="https://www.sciencedaily.com/news/health_medicine/today's_healthcare/" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="全球 地缘政治 Strait of Hormuz shipping nearly halted after US-Iran ceasefire collapsed. Iran moved 11M+ barrels of crude in 24 hours. Qatar suspended LNG capacity restoration. U.S. struck ~90 Iranian military targets. Qatar mediators arrived in Iran. 美伊停火崩溃后霍尔木兹海峡通航几近停滞。伊朗24小时紧急运出超1100万桶原油。卡塔尔暂停LNG产能恢复。美军打击约90个伊朗军事目标。卡塔尔调解团抵达伊朗。">
+    <div class="tags">
+      <span class="tag tag-country">🌍 全球</span>
+      <span class="tag tag-category">地缘政治</span>
+    </div>
+    <div class="en-text"><span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="Strait of Hormuz / 霍尔木兹海峡 / 高级">Strait of Hormuz</span> shipping nearly halted after US-Iran <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="ceasefire / 停火 / 中级">ceasefire</span> collapsed. Iran moved 11M+ barrels of crude in 24 hours. Qatar suspended LNG capacity restoration. U.S. struck ~90 Iranian military targets. Qatar mediators arrived in Iran.</div>
+    <div class="zh-text">美伊<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="ceasefire / 停火 / 中级">停火</span>崩溃后<span class="kw" style="color:#dc2626;background:#fee2e2;font-weight:700;" title="Strait of Hormuz / 霍尔木兹海峡 / 高级">霍尔木兹海峡</span>通航几近停滞。伊朗24小时紧急运出超1100万桶原油。卡塔尔暂停LNG产能恢复。美军打击约90个伊朗军事目标。卡塔尔调解团抵达伊朗。</div>
+    <div class="source-link"><a href="https://www.xinhuanet.com/20260710/ec0c6ef11c4d46709dfddbe15eb18a9a/c.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="全球 汽车 China auto exports projected to hit 10 million in 2026. Chinese brands outsold Japanese in Europe for the first time in May (138,410 vs 130,424). BYD H1 overseas sales up 68% to 789,367 units, cumulative production passed 17 million. 中国汽车出口预计2026年达1000万辆。中国品牌5月首次在欧洲销量超越日本(13.84万 vs 13.04万)。比亚迪上半年海外销量增68%达78.9万辆，累计产量突破1700万辆。">
+    <div class="tags">
+      <span class="tag tag-country">🌍 全球</span>
+      <span class="tag tag-category">汽车</span>
+    </div>
+    <div class="en-text">China <span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="auto export / 汽车出口 / 中级">auto exports</span> projected to hit 10 million in 2026. Chinese brands outsold Japanese in Europe for the first time in May (138,410 vs 130,424). BYD H1 overseas sales up 68% to 789,367 units, cumulative production passed 17 million.</div>
+    <div class="zh-text">中国<span class="kw" style="color:#2563eb;background:#dbeafe;font-weight:700;" title="auto export / 汽车出口 / 中级">汽车出口</span>预计2026年达1000万辆。中国品牌5月首次在欧洲销量超越日本(13.84万 vs 13.04万)。比亚迪上半年海外销量增68%达78.9万辆，累计产量突破1700万辆。</div>
+    <div class="source-link"><a href="https://www.techinasia.com/news/byd-passes-17-million-evs-as-global-sales-grow" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="section-title"><span class="icon">🔑</span> 关键词表</div>
+<div class="keywords-section">
+  <div class="kw-card" data-search="AI agent 智能体 科技 高级">
+    <div class="kw-pair">
+      <div class="kw-en">AI agent</div>
+      <div class="kw-zh">智能体</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">科技</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="broadly neutralizing antibody 广泛中和抗体 医疗 高级">
+    <div class="kw-pair">
+      <div class="kw-en">broadly neutralizing antibody</div>
+      <div class="kw-zh">广泛中和抗体</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">医疗</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="capital goods 资本品 经济 高级">
+    <div class="kw-pair">
+      <div class="kw-en">capital goods</div>
+      <div class="kw-zh">资本品</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="carbon peaking 碳达峰 环境政策 高级">
+    <div class="kw-pair">
+      <div class="kw-en">carbon peaking</div>
+      <div class="kw-zh">碳达峰</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">环境政策</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="circuit breaker 熔断机制 金融市场 高级">
+    <div class="kw-pair">
+      <div class="kw-en">circuit breaker</div>
+      <div class="kw-zh">熔断机制</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">金融市场</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="consumer price index (CPI) 消费者物价指数 经济 高级">
+    <div class="kw-pair">
+      <div class="kw-en">consumer price index (CPI)</div>
+      <div class="kw-zh">消费者物价指数</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="core inflation 核心通胀 经济 高级">
+    <div class="kw-pair">
+      <div class="kw-en">core inflation</div>
+      <div class="kw-zh">核心通胀</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="cost-push inflation 成本推动型通胀 经济 高级">
+    <div class="kw-pair">
+      <div class="kw-en">cost-push inflation</div>
+      <div class="kw-zh">成本推动型通胀</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="diesel export ban 柴油出口禁令 能源 高级">
+    <div class="kw-pair">
+      <div class="kw-en">diesel export ban</div>
+      <div class="kw-zh">柴油出口禁令</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">能源</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="digital tax 数字税 经济政策 高级">
+    <div class="kw-pair">
+      <div class="kw-en">digital tax</div>
+      <div class="kw-zh">数字税</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济政策</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="ethanol blending 乙醇混合 能源 高级">
+    <div class="kw-pair">
+      <div class="kw-en">ethanol blending</div>
+      <div class="kw-zh">乙醇混合</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">能源</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="high-bandwidth memory (HBM) 高带宽存储器 科技 高级">
+    <div class="kw-pair">
+      <div class="kw-en">high-bandwidth memory (HBM)</div>
+      <div class="kw-zh">高带宽存储器</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">科技</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="initial public offering (IPO) 首次公开募股 金融 高级">
+    <div class="kw-pair">
+      <div class="kw-en">initial public offering (IPO)</div>
+      <div class="kw-zh">首次公开募股</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">金融</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="maglev train 磁悬浮列车 交通 高级">
+    <div class="kw-pair">
+      <div class="kw-en">maglev train</div>
+      <div class="kw-zh">磁悬浮列车</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">交通</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="MRI metamaterial MRI超材料 医疗科技 高级">
+    <div class="kw-pair">
+      <div class="kw-en">MRI metamaterial</div>
+      <div class="kw-zh">MRI超材料</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">医疗科技</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="NATO defense spending 北约军费 地缘政治 高级">
+    <div class="kw-pair">
+      <div class="kw-en">NATO defense spending</div>
+      <div class="kw-zh">北约军费</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">地缘政治</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="net-capture recovery 网系回收 航天 高级">
+    <div class="kw-pair">
+      <div class="kw-en">net-capture recovery</div>
+      <div class="kw-zh">网系回收</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">航天</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="non-fossil energy 非化石能源 能源 高级">
+    <div class="kw-pair">
+      <div class="kw-en">non-fossil energy</div>
+      <div class="kw-zh">非化石能源</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">能源</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="nuclear reactor 核反应堆 能源 高级">
+    <div class="kw-pair">
+      <div class="kw-en">nuclear reactor</div>
+      <div class="kw-zh">核反应堆</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">能源</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="Phase III clinical trial III期临床试验 医疗 高级">
+    <div class="kw-pair">
+      <div class="kw-en">Phase III clinical trial</div>
+      <div class="kw-zh">III期临床试验</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">医疗</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="producer price index (PPI) 生产者物价指数 经济 高级">
+    <div class="kw-pair">
+      <div class="kw-en">producer price index (PPI)</div>
+      <div class="kw-zh">生产者物价指数</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="space manufacturing 太空制造 科技 高级">
+    <div class="kw-pair">
+      <div class="kw-en">space manufacturing</div>
+      <div class="kw-zh">太空制造</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">科技</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="Strait of Hormuz 霍尔木兹海峡 地缘政治 高级">
+    <div class="kw-pair">
+      <div class="kw-en">Strait of Hormuz</div>
+      <div class="kw-zh">霍尔木兹海峡</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">地缘政治</span>
+      <span class="kw-diff" style="color:#dc2626;background:#fee2e2">高级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="auto export 汽车出口 汽车 中级">
+    <div class="kw-pair">
+      <div class="kw-en">auto export</div>
+      <div class="kw-zh">汽车出口</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">汽车</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="bladder cancer 膀胱癌 医疗 中级">
+    <div class="kw-pair">
+      <div class="kw-en">bladder cancer</div>
+      <div class="kw-zh">膀胱癌</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">医疗</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="ceasefire 停火 地缘政治 中级">
+    <div class="kw-pair">
+      <div class="kw-en">ceasefire</div>
+      <div class="kw-zh">停火</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">地缘政治</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="central bank rate 央行利率 经济 中级">
+    <div class="kw-pair">
+      <div class="kw-en">central bank rate</div>
+      <div class="kw-zh">央行利率</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="corporate bankruptcy 企业破产 经济 中级">
+    <div class="kw-pair">
+      <div class="kw-en">corporate bankruptcy</div>
+      <div class="kw-zh">企业破产</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="cultural asset 文化资产 文化 中级">
+    <div class="kw-pair">
+      <div class="kw-en">cultural asset</div>
+      <div class="kw-zh">文化资产</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">文化</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="digital bank 数字银行 金融科技 中级">
+    <div class="kw-pair">
+      <div class="kw-en">digital bank</div>
+      <div class="kw-zh">数字银行</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">金融科技</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="drone strike 无人机打击 军事 中级">
+    <div class="kw-pair">
+      <div class="kw-en">drone strike</div>
+      <div class="kw-zh">无人机打击</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">军事</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="growth forecast 增长预期 经济 中级">
+    <div class="kw-pair">
+      <div class="kw-en">growth forecast</div>
+      <div class="kw-zh">增长预期</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="import duty 进口关税 经济 中级">
+    <div class="kw-pair">
+      <div class="kw-en">import duty</div>
+      <div class="kw-zh">进口关税</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="labor shortage 劳动力短缺 社会 中级">
+    <div class="kw-pair">
+      <div class="kw-en">labor shortage</div>
+      <div class="kw-zh">劳动力短缺</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">社会</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="localization 本地化 经济 中级">
+    <div class="kw-pair">
+      <div class="kw-en">localization</div>
+      <div class="kw-zh">本地化</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="mass production 量产 制造业 中级">
+    <div class="kw-pair">
+      <div class="kw-en">mass production</div>
+      <div class="kw-zh">量产</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">制造业</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="mortgage rate 房贷利率 金融 中级">
+    <div class="kw-pair">
+      <div class="kw-en">mortgage rate</div>
+      <div class="kw-zh">房贷利率</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">金融</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="pipeline 管道 能源 中级">
+    <div class="kw-pair">
+      <div class="kw-en">pipeline</div>
+      <div class="kw-zh">管道</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">能源</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="refinery 炼油厂 能源 中级">
+    <div class="kw-pair">
+      <div class="kw-en">refinery</div>
+      <div class="kw-zh">炼油厂</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">能源</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="reusable rocket 可回收火箭 航天 中级">
+    <div class="kw-pair">
+      <div class="kw-en">reusable rocket</div>
+      <div class="kw-zh">可回收火箭</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">航天</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="rooftop solar 屋顶太阳能 能源 中级">
+    <div class="kw-pair">
+      <div class="kw-en">rooftop solar</div>
+      <div class="kw-zh">屋顶太阳能</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">能源</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="semiconductor 半导体 科技 中级">
+    <div class="kw-pair">
+      <div class="kw-en">semiconductor</div>
+      <div class="kw-zh">半导体</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">科技</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="tax exemption 免税 经济 中级">
+    <div class="kw-pair">
+      <div class="kw-en">tax exemption</div>
+      <div class="kw-zh">免税</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="tourism revenue 旅游收入 旅游 中级">
+    <div class="kw-pair">
+      <div class="kw-en">tourism revenue</div>
+      <div class="kw-zh">旅游收入</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">旅游</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="trade deficit 贸易逆差 经济 中级">
+    <div class="kw-pair">
+      <div class="kw-en">trade deficit</div>
+      <div class="kw-zh">贸易逆差</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="trade surplus 贸易顺差 经济 中级">
+    <div class="kw-pair">
+      <div class="kw-en">trade surplus</div>
+      <div class="kw-zh">贸易顺差</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="color:#2563eb;background:#dbeafe">中级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="electric vehicle (EV) 电动车 汽车 初级">
+    <div class="kw-pair">
+      <div class="kw-en">electric vehicle (EV)</div>
+      <div class="kw-zh">电动车</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">汽车</span>
+      <span class="kw-diff" style="color:#16a34a;background:#dcfce7">初级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="heatwave 热浪 气候 初级">
+    <div class="kw-pair">
+      <div class="kw-en">heatwave</div>
+      <div class="kw-zh">热浪</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">气候</span>
+      <span class="kw-diff" style="color:#16a34a;background:#dcfce7">初级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="unemployment rate 失业率 经济 初级">
+    <div class="kw-pair">
+      <div class="kw-en">unemployment rate</div>
+      <div class="kw-zh">失业率</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="color:#16a34a;background:#dcfce7">初级</span>
+    </div>
+  </div>
+  <div class="kw-card" data-search="wildfire 森林火灾 灾害 初级">
+    <div class="kw-pair">
+      <div class="kw-en">wildfire</div>
+      <div class="kw-zh">森林火灾</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">灾害</span>
+      <span class="kw-diff" style="color:#16a34a;background:#dcfce7">初级</span>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  2026-07-10 · 每日新闻中英对照<br>
+  关键词按难度颜色标注，下划线高亮
+</div>
+
+<button class="back-top" onclick="scrollTo(0,0)" aria-label="回到顶部">↑</button>
+
+<script>
+var currentCat = '全部';
+
+function filterCategory(cat, el) {
+  currentCat = cat;
+  document.querySelectorAll('.cat-tab').forEach(function(t) { t.classList.remove('active'); });
+  if (el) el.classList.add('active');
+  applyFilters();
+}
+
+function applyFilters() {
+  var q = document.getElementById('searchInput').value.toLowerCase().trim();
+  var cards = document.querySelectorAll('.news-card');
+  cards.forEach(function(card) {
+    var searchText = (card.getAttribute('data-search') || '').toLowerCase();
+    var catEl = card.querySelector('.tag-category');
+    var cat = catEl ? catEl.textContent.trim() : '';
+    var matchSearch = (q === '' || searchText.indexOf(q) !== -1);
+    var matchCat = (currentCat === '全部' || cat === currentCat);
+    card.style.display = (matchSearch && matchCat) ? '' : 'none';
+  });
+  var sections = document.querySelectorAll('.country-section');
+  sections.forEach(function(s) {
+    var visible = s.querySelectorAll('.news-card:not([style*="display: none"])');
+    s.style.display = (visible.length > 0) ? '' : 'none';
+  });
+}
+
+function filterContent() {
+  applyFilters();
+}
+
+function toggleTheme() {
+  var body = document.body;
+  var btn = document.querySelector('.theme-toggle');
+  if (body.classList.contains('green-mode')) {
+    body.classList.remove('green-mode');
+    body.classList.add('gray-mode');
+    btn.textContent = '⬜ 浅灰';
+    localStorage.setItem('wig-theme', 'gray');
+  } else if (body.classList.contains('gray-mode')) {
+    body.classList.remove('gray-mode');
+    btn.textContent = '🟩 浅绿';
+    localStorage.setItem('wig-theme', 'default');
+  } else {
+    body.classList.add('green-mode');
+    btn.textContent = '🟩 浅绿';
+    localStorage.setItem('wig-theme', 'green');
+  }
+}
+
+(function initTheme() {
+  var saved = localStorage.getItem('wig-theme');
+  var body = document.body;
+  var btn = document.querySelector('.theme-toggle');
+  if (saved === 'green') {
+    body.classList.add('green-mode');
+    btn.textContent = '🟩 浅绿';
+  } else if (saved === 'gray') {
+    body.classList.add('gray-mode');
+    btn.textContent = '⬜ 浅灰';
+  } else {
+    btn.textContent = '🟩 浅绿';
+  }
+})();
+</script>
+</body>
+</html>
