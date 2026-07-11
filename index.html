@@ -1729,20 +1729,24 @@ function toggleTheme() {
 
   function initTTS() {
     document.querySelectorAll('.en-text').forEach(function(el) {
+      var text = el.textContent.trim();
+      el.setAttribute('data-text', text);
       var icon = makeIcon('tts-sentence');
       icon.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        speak(el.textContent.trim(), icon, el);
+        speak(el.getAttribute('data-text'), icon, el);
       });
       el.appendChild(icon);
     });
     document.querySelectorAll('.kw-en').forEach(function(el) {
+      var text = el.textContent.trim();
+      el.setAttribute('data-text', text);
       var icon = makeIcon('tts-kw');
       icon.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        speak(el.textContent.trim(), icon, el);
+        speak(el.getAttribute('data-text'), icon, el);
       });
       el.appendChild(icon);
     });
