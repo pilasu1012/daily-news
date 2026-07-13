@@ -1,0 +1,2618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0f172a">
+<title>每日新闻中英对照 2026-07-11</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text: #1e293b;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+  --accent: #3b82f6;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  --card-gap: 12px;
+}
+/* Light green theme */
+body.green-mode {
+  --bg: #f0fdf4;
+  --card-bg: #f8fafc;
+}
+/* Light gray theme */
+body.gray-mode {
+  --bg: #f3f4f6;
+  --card-bg: #fafafa;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 60px;
+}
+.header {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: white;
+  padding: 20px 16px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.theme-toggle {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+.theme-toggle:active {
+  background: rgba(255,255,255,0.25);
+}
+.header h1 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.header .date {
+  font-size: 13px;
+  opacity: 0.8;
+}
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+.stats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.legend {
+  background: var(--card-bg);
+  margin: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  font-size: 13px;
+}
+.legend-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+.legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+.legend-sample {
+  font-weight: 700;
+  font-size: 13px;
+}
+.section-title {
+  padding: 16px 16px 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .icon {
+  font-size: 20px;
+}
+.country-section {
+  margin: 0 12px 16px;
+}
+.country-header {
+  padding: 10px 14px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: var(--card-gap);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.news-card {
+  background: var(--card-bg);
+  margin-bottom: var(--card-gap);
+  padding: 14px 16px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  border-left: 3px solid transparent;
+}
+.news-card:last-child {
+  margin-bottom: 0;
+}
+.tags {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+.tag-country {
+  background: #f1f5f9;
+  color: #475569;
+}
+.tag-category {
+  background: #eff6ff;
+  color: #2563eb;
+}
+.en-text {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  color: #1e293b;
+  word-break: break-word;
+}
+.zh-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #475569;
+  padding-left: 10px;
+  border-left: 3px solid var(--border);
+  word-break: break-word;
+}
+.source-link {
+  margin-top: 8px;
+  font-size: 12px;
+}
+.source-link a {
+  color: var(--accent);
+  text-decoration: none;
+  word-break: break-all;
+}
+.source-link a:active {
+  opacity: 0.7;
+}
+.kw {
+  font-weight: 700;
+  cursor: help;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 0;
+}
+.keywords-section {
+  margin: 0 12px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.kw-card {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.kw-card:last-child {
+  border-bottom: none;
+}
+.kw-pair {
+  flex: 1;
+  min-width: 0;
+}
+.kw-en {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.kw-zh {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.kw-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.kw-cat {
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+.kw-diff {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: white;
+}
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.summary-table th, .summary-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.summary-table th {
+  background: #f1f5f9;
+  font-weight: 700;
+  color: var(--text);
+  position: sticky;
+  top: 0;
+}
+.summary-table tr:last-child td {
+  border-bottom: none;
+}
+.summary-table td:nth-child(1) {
+  font-weight: 600;
+  width: 38%;
+}
+.summary-table td:nth-child(2) {
+  color: var(--text-secondary);
+  width: 28%;
+}
+.summary-table td:nth-child(3) {
+  color: var(--text-secondary);
+  width: 20%;
+}
+.summary-table td:nth-child(4) {
+  text-align: center;
+  width: 14%;
+}
+.footer {
+  text-align: center;
+  padding: 20px 16px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.back-top {
+  position: fixed;
+  bottom: 20px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(59,130,246,0.4);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-box {
+  margin: 12px;
+  position: relative;
+}
+.search-box input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  background: var(--card-bg);
+  outline: none;
+}
+.search-box input:focus {
+  border-color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .header h1 { font-size: 16px; }
+  .en-text, .zh-text { font-size: 13px; line-height: 1.75; }
+  .news-card { padding: 12px 12px; }
+  .country-section { margin: 0 8px 16px; }
+  .legend { margin: 8px; padding: 10px 12px; }
+}
+</style>
+<style>
+/* ===== TTS 控件面板 (顶部) ===== */
+.tts-panel {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e5e7eb;
+  padding: 10px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 12px;
+  color: #374151;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 -16px 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+.tts-panel-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.tts-panel-label {
+  color: #6b7280;
+  font-weight: 500;
+  margin-right: 2px;
+}
+.tts-panel-btn {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #374151;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.15s;
+  user-select: none;
+}
+.tts-panel-btn:hover { border-color: #9ca3af; }
+.tts-panel-btn.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+}
+@media (max-width: 640px) {
+  .tts-panel { font-size: 11px; padding: 8px 10px; gap: 8px; }
+  .tts-panel-btn { padding: 2px 6px; font-size: 11px; }
+}
+
+/* ===== TTS 声音图标 ===== */
+.tts-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0 2px;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: opacity 0.2s, transform 0.1s;
+}
+.tts-icon:active { transform: scale(0.85); }
+.tts-icon.playing {
+  animation: tts-pulse 0.8s ease-in-out infinite;
+}
+@keyframes tts-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+.en-text .tts-sentence {
+  float: right;
+  font-size: 16px;
+  margin: 2px 0 0 4px;
+  opacity: 0.3;
+  transition: opacity 0.2s;
+}
+.en-text:hover .tts-sentence { opacity: 0.7; }
+.tts-sentence.playing { opacity: 1; color: #3b82f6; }
+.kw-en .tts-kw {
+  margin-left: 6px;
+  font-size: 13px;
+  opacity: 0.4;
+}
+.kw-en:hover .tts-kw { opacity: 0.8; }
+.tts-kw.playing { opacity: 1; color: #3b82f6; }
+.tts-highlight {
+  background: rgba(59, 130, 246, 0.15) !important;
+  border-radius: 3px;
+}
+</style>
+<style>
+/* ===== 用户进度跟踪 ===== */
+.news-card { position: relative; }
+.kw-card { position: relative; cursor: pointer; }
+
+/* 进度条 */
+.progress-bar {
+  background: var(--card-bg, #fff);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--text-secondary, #64748b);
+  border-bottom: 1px solid var(--border, #e2e8f0);
+}
+.progress-track {
+  flex: 1;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+  max-width: 200px;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+.progress-text {
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--text, #1e293b);
+}
+
+/* 新闻已读按钮 */
+.read-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid #cbd5e1;
+  background: rgba(255,255,255,0.9);
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  padding: 0;
+  line-height: 1;
+  color: #94a3b8;
+  opacity: 0.35;
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.read-btn:hover {
+  opacity: 0.8;
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+.read-btn.read {
+  opacity: 1;
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+}
+.news-card.read {
+  opacity: 0.5;
+}
+
+/* 关键词掌握状态 */
+.kw-card.learning {
+  box-shadow: inset 3px 0 0 #f59e0b;
+}
+.kw-card.mastered {
+  box-shadow: inset 3px 0 0 #16a34a;
+  background: rgba(22, 163, 74, 0.06);
+}
+.kw-card.mastered .kw-en {
+  color: #15803d;
+}
+
+/* 关键词状态按钮 (inline, 跟在 TTS 图标后面, 与新闻 ✓ 同款) */
+.kw-status-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid #cbd5e1;
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+  padding: 0;
+  line-height: 1;
+  color: #94a3b8;
+  opacity: 0.3;
+  margin-left: 16px;
+  vertical-align: middle;
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.kw-status-btn:hover {
+  opacity: 0.7;
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+.kw-status-btn.mastered {
+  opacity: 1;
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+}
+
+/* 统计面板 */
+.stats-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1e293b;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  z-index: 200;
+  transition: transform 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.stats-btn:active { transform: scale(0.88); }
+.stats-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 300;
+  display: none;
+}
+.stats-overlay.show { display: block; }
+.stats-panel {
+  position: fixed;
+  bottom: 74px;
+  left: 16px;
+  right: 16px;
+  max-width: 380px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  z-index: 301;
+  padding: 18px;
+  display: none;
+  font-size: 13px;
+  color: #1e293b;
+}
+.stats-panel.show { display: block; }
+.stats-panel h3 {
+  font-size: 16px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.stats-close {
+  cursor: pointer;
+  font-size: 18px;
+  color: #94a3b8;
+  background: none;
+  border: none;
+  padding: 0;
+  line-height: 1;
+}
+.stats-close:hover { color: #475569; }
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.stats-item {
+  text-align: center;
+  padding: 12px 8px;
+  background: #f8fafc;
+  border-radius: 10px;
+}
+.stats-num {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1e293b;
+  line-height: 1.2;
+}
+.stats-label {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 4px;
+}
+.stats-actions {
+  display: flex;
+  gap: 8px;
+}
+.stats-actions button {
+  flex: 1;
+  padding: 9px 4px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #374151;
+  transition: background 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.stats-actions button:hover { background: #f8fafc; }
+.stats-actions button:active { background: #e2e8f0; }
+.stats-actions button.danger {
+  color: #dc2626;
+  border-color: #fecaca;
+}
+.stats-actions button.danger:hover { background: #fef2f2; }
+
+@media (max-width: 480px) {
+  .progress-bar { font-size: 11px; padding: 6px 10px; gap: 8px; }
+  .progress-track { max-width: 120px; }
+  .stats-panel { padding: 14px; }
+  .stats-num { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <button class="theme-toggle" onclick="toggleTheme()" title="切换背景色">🎨 模式</button>
+  <h1>每日新闻中英对照</h1>
+  <div class="date">2026-07-11</div>
+  <div class="stats">
+    <span>42 条新闻</span>
+    <span>39 个关键词</span>
+    <span>16 个国家/地区</span>
+  </div>
+</div>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="搜索新闻或关键词..." oninput="filterContent()">
+</div>
+
+<div class="legend">
+  <div class="legend-title">关键词难度色标</div>
+  <div class="legend-items">
+<div class="legend-item"><span class="legend-sample" style="color:#16a34a">keyword</span> 初级</div><div class="legend-item"><span class="legend-sample" style="color:#2563eb">keyword</span> 中级</div><div class="legend-item"><span class="legend-sample" style="color:#dc2626">keyword</span> 高级</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="icon">📰</span> 新闻摘要</div>
+
+<div class="country-section" data-search="澳大利亚">
+  <div class="country-header">
+    <span>🇦🇺 澳大利亚</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="澳大利亚 社会 Australia's largest telecommunications provider Telstra faced a nationwide outage on July 10, and a Senate inquiry demanded the company testify about disruptions to emergency calls across the country. 澳大利亚最大电信运营商Telstra在7月10日发生全国网络中断，参议院调查要求该公司就全国紧急呼叫服务中断事件出庭作证。">
+    <div class="tags">
+      <span class="tag tag-country">🇦🇺 澳大利亚</span>
+      <span class="tag tag-category">社会</span>
+    </div>
+    <div class="en-text">Australia's largest telecommunications provider Telstra faced a nationwide outage on July 10, and a Senate inquiry demanded the company testify about disruptions to emergency calls across the country.</div>
+    <div class="zh-text">澳大利亚最大电信运营商Telstra在7月10日发生全国<span class="kw" style="color:#16a34a;font-weight:700;" title="network outage / 网络中断 / 初级">网络中断</span>，参议院调查要求该公司就全国紧急呼叫服务中断事件出庭作证。</div>
+    <div class="source-link"><a href="https://radio-transcript.com/digest" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="澳大利亚 外交 Australian Prime Minister Anthony Albanese and Indian Prime Minister Narendra Modi reached an agreement during Modi's visit, under which Australia will export uranium to India for peaceful purposes such as power generation. 澳大利亚总理阿尔巴尼斯与印度总理莫迪在访问期间达成协议，澳大利亚将向印度出口铀，用于发电等和平用途。">
+    <div class="tags">
+      <span class="tag tag-country">🇦🇺 澳大利亚</span>
+      <span class="tag tag-category">外交</span>
+    </div>
+    <div class="en-text">Australian Prime Minister Anthony Albanese and Indian Prime Minister Narendra Modi reached an agreement during Modi's visit, under which Australia will export uranium to India for peaceful purposes such as power generation.</div>
+    <div class="zh-text">澳大利亚总理阿尔巴尼斯与印度总理莫迪在访问期间达成协议，澳大利亚将向印度出口铀，用于发电等和平用途。</div>
+    <div class="source-link"><a href="https://new.qq.com/r/a/20260712A031VX00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="巴西">
+  <div class="country-header">
+    <span>🇧🇷 巴西</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="巴西 能源 Brazil's foreign trade chamber decided on July 9 to extend a 12 percent tax on crude oil exports for another 60 days, with the resolution taking effect on July 10, aiming to shield domestic refiners from global price volatility. 巴西对外贸易商会7月9日决定将12%的原油出口税再延长60天，相关决议自7月10日起生效，旨在保护国内炼油企业免受国际油价波动影响。">
+    <div class="tags">
+      <span class="tag tag-country">🇧🇷 巴西</span>
+      <span class="tag tag-category">能源</span>
+    </div>
+    <div class="en-text">Brazil's foreign trade chamber decided on July 9 to extend a 12 percent tax on <span class="kw" style="color:#16a34a;font-weight:700;" title="crude oil export tax / 原油出口税 / 初级">crude oil</span> exports for another 60 days, with the resolution taking effect on July 10, aiming to shield domestic refiners from global price volatility.</div>
+    <div class="zh-text">巴西对外贸易商会7月9日决定将12%的<span class="kw" style="color:#16a34a;font-weight:700;" title="crude oil export tax / 原油出口税 / 初级">原油出口税</span>再延长60天，相关决议自7月10日起生效，旨在保护国内炼油企业免受国际油价波动影响。</div>
+    <div class="source-link"><a href="https://www.toutiao.com/article/7660800803154608703/" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="巴西 经济 The United States announced it would suspend tariffs of up to 40 percent on some Brazilian agricultural products, including beef, coffee and fruit, after trade negotiations between the two countries showed partial progress. 美国宣布在两国贸易谈判取得部分进展后，将暂停对部分巴西农产品征收最高40%的关税，涉及牛肉、咖啡和水果等。">
+    <div class="tags">
+      <span class="tag tag-country">🇧🇷 巴西</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">The United States announced it would suspend tariffs of up to 40 percent on some Brazilian agricultural products, including beef, coffee and fruit, after trade negotiations between the two countries showed partial progress.</div>
+    <div class="zh-text">美国宣布在两国贸易谈判取得部分进展后，将暂停对部分巴西农产品征收最高40%的关税，涉及牛肉、咖啡和水果等。</div>
+    <div class="source-link"><a href="https://www.sohu.com/a/1048864373_121141878" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="加拿大">
+  <div class="country-header">
+    <span>🇨🇦 加拿大</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">1 条</span>
+  </div>
+
+  <div class="news-card" data-search="加拿大 外交 Canadian Prime Minister Mark Carney began a visit to Saudi Arabia, during which the two countries signed 13 commercial agreements and memorandums of understanding as Ottawa seeks to diversify trade partners beyond the United States. 加拿大总理卡尼开启沙特阿拉伯之行，两国签署了13项商业协议和谅解备忘录，渥太华希望实现贸易伙伴多元化，以减少对美国的过度依赖。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇦 加拿大</span>
+      <span class="tag tag-category">外交</span>
+    </div>
+    <div class="en-text">Canadian Prime Minister Mark Carney began a visit to Saudi Arabia, during which the two countries signed 13 commercial agreements and memorandums of understanding as Ottawa seeks to diversify trade partners beyond the United States.</div>
+    <div class="zh-text">加拿大总理卡尼开启沙特阿拉伯之行，两国签署了13项商业协议和谅解备忘录，渥太华希望实现<span class="kw" style="color:#2563eb;font-weight:700;" title="trade partner diversification / 贸易伙伴多元化 / 中级">贸易伙伴多元化</span>，以减少对美国的过度依赖。</div>
+    <div class="source-link"><a href="https://finance.sina.cn/2026-07-11/detail-inihkptk3592541.d.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="中国">
+  <div class="country-header">
+    <span>🇨🇳 中国</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">7 条</span>
+  </div>
+
+  <div class="news-card" data-search="中国 航天 China's Long March-10B carrier rocket successfully launched from Hainan on July 10 and achieved the world's first sea-based net-capture recovery of a rocket first stage, marking a historic breakthrough in reusable launch vehicle technology. 中国长征十号乙运载火箭7月10日在海南成功发射，并实现了全球首次海上网系回收火箭一子级，标志着中国在可重复使用运载火箭技术领域取得历史性突破。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇳 中国</span>
+      <span class="tag tag-category">航天</span>
+    </div>
+    <div class="en-text">China's Long March-10B carrier rocket successfully launched from Hainan on July 10 and achieved the world's first sea-based <span class="kw" style="color:#dc2626;font-weight:700;" title="net-capture recovery / 网系回收 / 高级">net-capture recovery</span> of a rocket first stage, marking a historic breakthrough in reusable launch vehicle technology.</div>
+    <div class="zh-text">中国长征十号乙运载<span class="kw" style="color:#2563eb;font-weight:700;" title="reusable rocket / 可重复使用火箭 / 中级">火箭</span>7月10日在海南成功发射，并实现了全球首次海上<span class="kw" style="color:#dc2626;font-weight:700;" title="net-capture recovery / 网系回收 / 高级">网系回收</span>火箭一子级，标志着中国在可重复使用运载<span class="kw" style="color:#2563eb;font-weight:700;" title="reusable rocket / 可重复使用火箭 / 中级">火箭</span>技术领域取得历史性突破。</div>
+    <div class="source-link"><a href="https://finance.sina.com.cn/roll/2026-07-11/doc-inihktzm5072446.shtml" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="中国 科技 China's first fully domestically produced 100,000-card AI supercomputing cluster, named Sugon 8000 (Dengfeng), was officially unveiled on July 10 and connected to the national supercomputing internet. 中国首个全国产十万卡AI超集群——曙光8000（登峰）于7月10日正式发布并接入国家超算互联网。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇳 中国</span>
+      <span class="tag tag-category">科技</span>
+    </div>
+    <div class="en-text">China's first fully domestically produced 100,000-card <span class="kw" style="color:#2563eb;font-weight:700;" title="artificial intelligence (AI) / AI（Artificial Intelligence，人工智能） / 中级">AI</span> supercomputing cluster, named Sugon 8000 (Dengfeng), was officially unveiled on July 10 and connected to the national supercomputing internet.</div>
+    <div class="zh-text">中国首个全国产十万卡AI超集群——曙光8000（登峰）于7月10日正式发布并接入国家超算互联网。</div>
+    <div class="source-link"><a href="https://finance.sina.com.cn/roll/2026-07-11/doc-inihktzm5072446.shtml" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="中国 经济 China's summer grain output in 2026 reached 301.49 billion jin, exceeding 300 billion jin for the first time and increasing by 2 billion jin compared with the previous year, according to data released by the National Bureau of Statistics. 国家统计局发布数据显示，2026年全国夏粮产量达3014.9亿斤，首次突破3000亿斤，比上年增加20亿斤。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇳 中国</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">China's <span class="kw" style="color:#16a34a;font-weight:700;" title="summer grain output / 夏粮产量 / 初级">summer grain output</span> in 2026 reached 301.49 billion jin, exceeding 300 billion jin for the first time and increasing by 2 billion jin compared with the previous year, according to data released by the National Bureau of Statistics.</div>
+    <div class="zh-text">国家统计局发布数据显示，2026年全国<span class="kw" style="color:#16a34a;font-weight:700;" title="summer grain output / 夏粮产量 / 初级">夏粮产量</span>达3014.9亿斤，首次突破3000亿斤，比上年增加20亿斤。</div>
+    <div class="source-link"><a href="https://www.163.com/dy/article/L1HNQ8HR0519QIKK.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="中国 能源 China's national electricity load hit a record high of 151.8 million kilowatts on July 10, surpassing the previous peak by 10 million kilowatts, the National Development and Reform Commission announced. 国家发展改革委表示，7月10日全国用电负荷创历史新高，达到15.18亿千瓦，较历史极值增加1000万千瓦。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇳 中国</span>
+      <span class="tag tag-category">能源</span>
+    </div>
+    <div class="en-text">China's national <span class="kw" style="color:#16a34a;font-weight:700;" title="electricity load / 用电负荷 / 初级">electricity load</span> hit a record high of 151.8 million kilowatts on July 10, surpassing the previous peak by 10 million kilowatts, the National Development and Reform Commission announced.</div>
+    <div class="zh-text">国家发展改革委表示，7月10日全国<span class="kw" style="color:#16a34a;font-weight:700;" title="electricity load / 用电负荷 / 初级">用电负荷</span>创历史新高，达到15.18亿千瓦，较历史极值增加1000万千瓦。</div>
+    <div class="source-link"><a href="https://new.qq.com/rain/a/20260711A02JO300" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="中国 经济 China exported 5.096 million vehicles in the first half of 2026, a year-on-year increase of 65.3 percent, according to the China Association of Automobile Manufacturers. 中国汽车工业协会数据显示，2026年1至6月中国汽车出口达509.6万辆，同比增长65.3%。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇳 中国</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">China exported 5.096 million vehicles in the first half of 2026, a year-on-year increase of 65.3 percent, according to the China Association of Automobile Manufacturers.</div>
+    <div class="zh-text">中国汽车工业协会数据显示，2026年1至6月中国<span class="kw" style="color:#16a34a;font-weight:700;" title="automobile export / 汽车出口 / 初级">汽车出口</span>达509.6万辆，同比增长65.3%。</div>
+    <div class="source-link"><a href="https://www.toutiao.com/article/7661040882535252534" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="中国 医疗 Chengdu Olymvax Biopharmaceuticals announced that its recombinant Staphylococcus aureus vaccine completed a Phase III clinical trial with an efficacy of 73.25 percent, exceeding the preset target of 60 percent. 成都欧林生物宣布其重组金黄色葡萄球菌疫苗完成III期临床试验，保护效力达73.25%，超过预设的60%指标。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇳 中国</span>
+      <span class="tag tag-category">医疗</span>
+    </div>
+    <div class="en-text">Chengdu Olymvax Biopharmaceuticals announced that its recombinant Staphylococcus aureus vaccine completed a <span class="kw" style="color:#dc2626;font-weight:700;" title="Phase III clinical trial / III期临床试验 / 高级">Phase III clinical trial</span> with an efficacy of 73.25 percent, exceeding the preset target of 60 percent.</div>
+    <div class="zh-text">成都欧林生物宣布其重组金黄色葡萄球菌疫苗完成<span class="kw" style="color:#dc2626;font-weight:700;" title="Phase III clinical trial / III期临床试验 / 高级">III期临床试验</span>，保护效力达73.25%，超过预设的60%指标。</div>
+    <div class="source-link"><a href="https://guba.eastmoney.com/news,688319,1741825337.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="中国 灾害 Typhoon Bavi, a super typhoon, approached China's eastern coast on July 11, prompting Shanghai to relocate nearly 300,000 people and cancel more than 2,800 flights at Pudong and Hangzhou airports. 超强台风巴威7月11日逼近中国东部沿海，上海转移近30万人，浦东和杭州等机场取消航班超2800架次。">
+    <div class="tags">
+      <span class="tag tag-country">🇨🇳 中国</span>
+      <span class="tag tag-category">灾害</span>
+    </div>
+    <div class="en-text">Typhoon Bavi, a <span class="kw" style="color:#2563eb;font-weight:700;" title="super typhoon / 超强台风 / 中级">super typhoon</span>, approached China's eastern coast on July 11, prompting Shanghai to relocate nearly 300,000 people and cancel more than 2,800 flights at Pudong and Hangzhou airports.</div>
+    <div class="zh-text"><span class="kw" style="color:#2563eb;font-weight:700;" title="super typhoon / 超强台风 / 中级">超强台风</span>巴威7月11日逼近中国东部沿海，上海转移近30万人，浦东和杭州等机场取消航班超2800架次。</div>
+    <div class="source-link"><a href="https://new.qq.com/r/a/20260712A04FAB00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="德国">
+  <div class="country-header">
+    <span>🇩🇪 德国</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="德国 医疗 Germany's Bundestag narrowly passed a health insurance reform bill, known as the Premium Stabilization Act, which aims to save 18.8 billion euros next year by cutting benefits and raising contributions for high-income earners. 德国联邦议院以微弱优势通过医保改革法案《保费稳定法》，计划通过削减福利和提高高收入者缴费基数在明年实现188亿欧元紧缩目标。">
+    <div class="tags">
+      <span class="tag tag-country">🇩🇪 德国</span>
+      <span class="tag tag-category">医疗</span>
+    </div>
+    <div class="en-text">Germany's Bundestag narrowly passed a health insurance reform bill, known as the Premium Stabilization Act, which aims to save 18.8 billion euros next year by cutting benefits and raising contributions for high-income earners.</div>
+    <div class="zh-text">德国联邦议院以微弱优势通过医保改革法案《保费稳定法》，计划通过削减福利和提高高收入者缴费基数在明年实现188亿欧元紧缩目标。</div>
+    <div class="source-link"><a href="https://www.163.com/dy/article/L1HC1OF90514BIIR.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="德国 能源 German heat pump installers and consumers rushed to submit subsidy applications before new rules took effect, because the government decided to reduce the maximum eligible cost for new heating systems from 30,000 euros to 28,000 euros. 德国热泵安装商和消费者赶在新规生效前提交补贴申请，因为政府决定将新供暖设备可补贴成本上限从3万欧元降至2.8万欧元。">
+    <div class="tags">
+      <span class="tag tag-country">🇩🇪 德国</span>
+      <span class="tag tag-category">能源</span>
+    </div>
+    <div class="en-text">German heat pump installers and consumers rushed to submit subsidy applications before new rules took effect, because the government decided to reduce the maximum eligible cost for new heating systems from 30,000 euros to 28,000 euros.</div>
+    <div class="zh-text">德国热泵安装商和消费者赶在新规生效前提交补贴申请，因为政府决定将新供暖设备可补贴成本上限从3万欧元降至2.8万欧元。</div>
+    <div class="source-link"><a href="https://www.163.com/dy/article/L1HDK7KA0556C0TI.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="西班牙">
+  <div class="country-header">
+    <span>🇪🇸 西班牙</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="西班牙 灾害 A wildfire in Almeria, southern Spain, which may have been caused by a fallen overhead power line, has killed at least 12 people, left 19 missing and forced about 1,000 residents to evacuate. 西班牙南部阿尔梅里亚省发生森林火灾，可能由一根掉落的架空电线引发，已造成至少12人死亡、19人失联，约1000名居民被迫疏散。">
+    <div class="tags">
+      <span class="tag tag-country">🇪🇸 西班牙</span>
+      <span class="tag tag-category">灾害</span>
+    </div>
+    <div class="en-text">A wildfire in Almeria, southern Spain, which may have been caused by a fallen overhead power line, has killed at least 12 people, left 19 missing and forced about 1,000 residents to evacuate.</div>
+    <div class="zh-text">西班牙南部阿尔梅里亚省发生森林火灾，可能由一根掉落的架空电线引发，已造成至少12人死亡、19人失联，约1000名居民被迫疏散。</div>
+    <div class="source-link"><a href="https://www.163.com/dy/article/L1H8DMN10550HXM1.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="西班牙 体育 Spain defeated Belgium 2-1 in the 2026 World Cup quarterfinals on July 10, advancing to a semifinal match against France; a minute of silence was held before kickoff for victims of the Almeria wildfires. 西班牙队在7月10日的2026世界杯四分之一决赛中2比1击败比利时队晋级半决赛，将对阵法国队；开赛前为阿尔梅里亚森林火灾遇难者默哀一分钟。">
+    <div class="tags">
+      <span class="tag tag-country">🇪🇸 西班牙</span>
+      <span class="tag tag-category">体育</span>
+    </div>
+    <div class="en-text">Spain defeated Belgium 2-1 in the 2026 World Cup quarterfinals on July 10, advancing to a semifinal match against France; a minute of silence was held before kickoff for victims of the Almeria wildfires.</div>
+    <div class="zh-text">西班牙队在7月10日的2026世界杯四分之一决赛中2比1击败比利时队晋级半决赛，将对阵法国队；开赛前为阿尔梅里亚森林火灾遇难者默哀一分钟。</div>
+    <div class="source-link"><a href="https://bolavip.com/en/world-cup/why-was-there-a-minute-of-silence-before-spain-vs-belgium-at-the-2026-world-cup-today" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="法国">
+  <div class="country-header">
+    <span>🇫🇷 法国</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="法国 社会 France continued to suffer from a severe heatwave on July 11, forcing the Louvre Museum in Paris to close early at 4 p.m. and prompting hospitals to urgently purchase air conditioners as heat-related illnesses surged. 法国7月11日继续遭受严重热浪袭击，巴黎卢浮宫博物馆被迫提前至下午4点闭馆，医院紧急采购空调以应对高温相关疾病激增。">
+    <div class="tags">
+      <span class="tag tag-country">🇫🇷 法国</span>
+      <span class="tag tag-category">社会</span>
+    </div>
+    <div class="en-text">France continued to suffer from a severe <span class="kw" style="color:#2563eb;font-weight:700;" title="heatwave / 热浪 / 中级">heatwave</span> on July 11, forcing the Louvre Museum in Paris to close early at 4 p.m. and prompting hospitals to urgently purchase air conditioners as heat-related illnesses surged.</div>
+    <div class="zh-text">法国7月11日继续遭受严重<span class="kw" style="color:#2563eb;font-weight:700;" title="heatwave / 热浪 / 中级">热浪</span>袭击，巴黎卢浮宫博物馆被迫提前至下午4点闭馆，医院紧急采购空调以应对<span class="kw" style="color:#2563eb;font-weight:700;" title="heatwave / 热浪 / 中级">高温</span>相关疾病激增。</div>
+    <div class="source-link"><a href="https://new.qq.com/r/a/20260711A05Q0R00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="法国 经济 France's consumer price index rose 1.8 percent year on year in June, slowing from a 2.4 percent increase in May, as energy price growth narrowed, according to official statistics released on July 10. 法国国家统计和经济研究所7月10日公布的数据显示，6月法国居民消费价格指数（CPI）同比上涨1.8%，较5月的2.4%明显放缓。">
+    <div class="tags">
+      <span class="tag tag-country">🇫🇷 法国</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">France's <span class="kw" style="color:#2563eb;font-weight:700;" title="consumer price index (CPI) / CPI（Consumer Price Index，居民消费价格指数） / 中级">consumer price index</span> rose 1.8 percent year on year in June, slowing from a 2.4 percent increase in May, as energy price growth narrowed, according to official statistics released on July 10.</div>
+    <div class="zh-text">法国国家统计和经济研究所7月10日公布的数据显示，6月法国居民消费价格指数（<span class="kw" style="color:#2563eb;font-weight:700;" title="consumer price index (CPI) / CPI（Consumer Price Index，居民消费价格指数） / 中级">CPI</span>）同比上涨1.8%，较5月的2.4%明显放缓。</div>
+    <div class="source-link"><a href="https://new.qq.com/r/a/20260711A05Q0R00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="英国">
+  <div class="country-header">
+    <span>🇬🇧 英国</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="英国 金融科技 The UK Treasury designated Amazon Web Services, Google Cloud, Microsoft Azure and Oracle as critical third parties to the financial system on July 10, bringing major cloud providers under direct supervision by the Bank of England from July 13. 英国财政部7月10日将亚马逊云服务、谷歌云、微软Azure和甲骨文列为金融体系关键第三方，自7月13日起由英国央行直接监管这些大型云服务商。">
+    <div class="tags">
+      <span class="tag tag-country">🇬🇧 英国</span>
+      <span class="tag tag-category">金融科技</span>
+    </div>
+    <div class="en-text">The UK Treasury designated Amazon Web Services, Google Cloud, Microsoft Azure and Oracle as <span class="kw" style="color:#2563eb;font-weight:700;" title="critical third party / 关键第三方 / 中级">critical third parties</span> to the financial system on July 10, bringing major <span class="kw" style="color:#2563eb;font-weight:700;" title="cloud provider / 云服务商 / 中级">cloud providers</span> under direct supervision by the Bank of England from July 13.</div>
+    <div class="zh-text">英国财政部7月10日将亚马逊云服务、谷歌云、微软Azure和甲骨文列为金融体系<span class="kw" style="color:#2563eb;font-weight:700;" title="critical third party / 关键第三方 / 中级">关键第三方</span>，自7月13日起由英国央行直接监管这些大型<span class="kw" style="color:#2563eb;font-weight:700;" title="cloud provider / 云服务商 / 中级">云服务商</span>。</div>
+    <div class="source-link"><a href="https://www.tmtpost.com/8060710.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="英国 科技 The UK Ministry of Defence unveiled a 2 billion pound plan on July 11 to build an artificial intelligence combat laboratory and upgrade army training systems using smart technologies. 英国国防部7月11日公布一项20亿英镑计划，建设人工智能作战实验室，利用智能技术升级陆军训练体系。">
+    <div class="tags">
+      <span class="tag tag-country">🇬🇧 英国</span>
+      <span class="tag tag-category">科技</span>
+    </div>
+    <div class="en-text">The UK Ministry of Defence unveiled a 2 billion pound plan on July 11 to build an <span class="kw" style="color:#2563eb;font-weight:700;" title="artificial intelligence (AI) / AI（Artificial Intelligence，人工智能） / 中级">artificial intelligence</span> combat laboratory and upgrade army training systems using smart technologies.</div>
+    <div class="zh-text">英国国防部7月11日公布一项20亿英镑计划，建设人工智能作战实验室，利用智能技术升级陆军训练体系。</div>
+    <div class="source-link"><a href="https://new.qq.com/r/a/20260712A029VM00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="印度">
+  <div class="country-header">
+    <span>🇮🇳 印度</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="印度 外交 Indian Prime Minister Narendra Modi and New Zealand Prime Minister Christopher Luxon announced in Auckland on July 11 that the two countries would elevate bilateral relations to a strategic partnership. 印度总理莫迪与新西兰总理拉克森7月11日在奥克兰宣布，两国将双边关系提升为战略伙伴关系。">
+    <div class="tags">
+      <span class="tag tag-country">🇮🇳 印度</span>
+      <span class="tag tag-category">外交</span>
+    </div>
+    <div class="en-text">Indian Prime Minister Narendra Modi and New Zealand Prime Minister Christopher Luxon announced in Auckland on July 11 that the two countries would elevate bilateral relations to a <span class="kw" style="color:#16a34a;font-weight:700;" title="strategic partnership / 战略伙伴关系 / 初级">strategic partnership</span>.</div>
+    <div class="zh-text">印度总理莫迪与新西兰总理拉克森7月11日在奥克兰宣布，两国将双边关系提升为<span class="kw" style="color:#16a34a;font-weight:700;" title="strategic partnership / 战略伙伴关系 / 初级">战略伙伴关系</span>。</div>
+    <div class="source-link"><a href="https://new.qq.com/r/a/20260712A031VX00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="印度 经济 India is experiencing extreme summer temperatures of 45 to 48 degrees Celsius, yet air conditioning penetration remains below 10 percent, highlighting severe gaps in electricity infrastructure and cooling access. 印度夏季多地气温升至45至48摄氏度，但空调普及率仍不足10%，凸显电力基础设施和降温可及性的严重不足。">
+    <div class="tags">
+      <span class="tag tag-country">🇮🇳 印度</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">India is experiencing extreme summer temperatures of 45 to 48 degrees Celsius, yet <span class="kw" style="color:#2563eb;font-weight:700;" title="air conditioning penetration / 空调普及率 / 中级">air conditioning penetration</span> remains below 10 percent, highlighting severe gaps in electricity infrastructure and cooling access.</div>
+    <div class="zh-text">印度夏季多地气温升至45至48摄氏度，但<span class="kw" style="color:#2563eb;font-weight:700;" title="air conditioning penetration / 空调普及率 / 中级">空调普及率</span>仍不足10%，凸显电力基础设施和降温可及性的严重不足。</div>
+    <div class="source-link"><a href="https://www.toutiao.com/article/7661152232108261940" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="意大利">
+  <div class="country-header">
+    <span>🇮🇹 意大利</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">1 条</span>
+  </div>
+
+  <div class="news-card" data-search="意大利 能源 Italy has one of the highest ratios of electricity prices to natural gas prices in the European Union, according to a draft European Commission plan, which is preparing new measures to accelerate electrification across the bloc. 欧盟委员会提案草案显示，意大利的电价与天然气价格比率处于欧盟最高水平，欧委会正准备新措施以加快全盟电气化进程。">
+    <div class="tags">
+      <span class="tag tag-country">🇮🇹 意大利</span>
+      <span class="tag tag-category">能源</span>
+    </div>
+    <div class="en-text">Italy has one of the highest ratios of electricity prices to natural gas prices in the European Union, according to a draft European Commission plan, which is preparing new measures to accelerate electrification across the bloc.</div>
+    <div class="zh-text">欧盟委员会提案草案显示，意大利的电价与天然气价格比率处于欧盟最高水平，欧委会正准备新措施以加快全盟电气化进程。</div>
+    <div class="source-link"><a href="https://www.guancha.cn/internation/2026_07_11_823434.shtml" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="日本">
+  <div class="country-header">
+    <span>🇯🇵 日本</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">4 条</span>
+  </div>
+
+  <div class="news-card" data-search="日本 经济 Japanese Finance Minister Satsuki Katayama called on public pension funds, including the Government Pension Investment Fund, to increase investment in domestic financial assets, causing the yen to jump sharply. 日本财务大臣片山皋月呼吁包括政府养老投资基金在内的公共养老金增加对日本国内金融资产的投资，引发日元大幅跳涨。">
+    <div class="tags">
+      <span class="tag tag-country">🇯🇵 日本</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">Japanese Finance Minister Satsuki Katayama called on public <span class="kw" style="color:#16a34a;font-weight:700;" title="pension fund / 养老基金 / 初级">pension funds</span>, including the <span class="kw" style="color:#dc2626;font-weight:700;" title="Government Pension Investment Fund (GPIF) / GPIF（Government Pension Investment Fund，政府养老投资基金） / 高级">Government Pension Investment Fund</span>, to increase investment in domestic financial assets, causing the yen to jump sharply.</div>
+    <div class="zh-text">日本财务大臣片山皋月呼吁包括政府养老投资基金在内的公共养老金增加对日本国内金融资产的投资，引发日元大幅跳涨。</div>
+    <div class="source-link"><a href="https://www.163.com/dy/article/L1HAH2FN05198NMR.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="日本 社会 Japanese corporate bankruptcies reached 5,346 cases in the first half of 2026, up 7.1 percent year on year and exceeding 5,000 for the first time in 11 years, according to Tokyo Shoko Research. 东京商工调查公司数据显示，2026年上半年日本企业破产数达5346家，同比增长7.1%，时隔11年同期再次突破5000家。">
+    <div class="tags">
+      <span class="tag tag-country">🇯🇵 日本</span>
+      <span class="tag tag-category">社会</span>
+    </div>
+    <div class="en-text">Japanese <span class="kw" style="color:#16a34a;font-weight:700;" title="corporate bankruptcy / 企业破产 / 初级">corporate bankruptcies</span> reached 5,346 cases in the first half of 2026, up 7.1 percent year on year and exceeding 5,000 for the first time in 11 years, according to Tokyo Shoko Research.</div>
+    <div class="zh-text">东京商工调查公司数据显示，2026年上半年日本<span class="kw" style="color:#16a34a;font-weight:700;" title="corporate bankruptcy / 企业破产 / 初级">企业破产</span>数达5346家，同比增长7.1%，时隔11年同期再次突破5000家。</div>
+    <div class="source-link"><a href="https://new.qq.com/r/a/20260712A02F2B00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="日本 航天 Japan's space agency JAXA conducted a reusable rocket test flight on July 11, with its RV-X vehicle reaching a maximum altitude of only 11 meters during a 40-second hop, a modest step toward future reusable launchers. 日本宇宙航空研究开发机构7月11日进行可重复使用火箭试飞，其RV-X验证飞行器在40秒飞行中最大高度仅11米，这是迈向未来可重复使用运载器的一小步。">
+    <div class="tags">
+      <span class="tag tag-country">🇯🇵 日本</span>
+      <span class="tag tag-category">航天</span>
+    </div>
+    <div class="en-text">Japan's space agency JAXA conducted a <span class="kw" style="color:#2563eb;font-weight:700;" title="reusable rocket / 可重复使用火箭 / 中级">reusable rocket</span> test flight on July 11, with its RV-X vehicle reaching a maximum altitude of only 11 meters during a 40-second hop, a modest step toward future reusable launchers.</div>
+    <div class="zh-text">日本宇宙航空研究开发机构7月11日进行<span class="kw" style="color:#2563eb;font-weight:700;" title="reusable rocket / 可重复使用火箭 / 中级">可重复使用火箭</span>试飞，其RV-X验证飞行器在40秒飞行中最大高度仅11米，这是迈向未来可重复使用运载器的一小步。</div>
+    <div class="source-link"><a href="https://new.qq.com/r/a/20260711A09W0K00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="日本 灾害 Super Typhoon Bavi approached Japan's Ryukyu Islands on July 11, prompting local authorities to issue warnings and Japan Coast Guard patrol vessels to move through the Taiwan Strait to avoid the storm. 超强台风巴威7月11日逼近日本琉球群岛，当地政府发布预警，日本海上保安厅巡逻船穿越台湾海峡躲避台风。">
+    <div class="tags">
+      <span class="tag tag-country">🇯🇵 日本</span>
+      <span class="tag tag-category">灾害</span>
+    </div>
+    <div class="en-text"><span class="kw" style="color:#2563eb;font-weight:700;" title="super typhoon / 超强台风 / 中级">Super Typhoon</span> Bavi approached Japan's Ryukyu Islands on July 11, prompting local authorities to issue warnings and Japan Coast Guard patrol vessels to move through the Taiwan Strait to avoid the storm.</div>
+    <div class="zh-text"><span class="kw" style="color:#2563eb;font-weight:700;" title="super typhoon / 超强台风 / 中级">超强台风</span>巴威7月11日逼近日本琉球群岛，当地政府发布预警，日本海上保安厅巡逻船穿越台湾海峡躲避台风。</div>
+    <div class="source-link"><a href="https://new.qq.com/r/a/20260712A02F2B00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="韩国">
+  <div class="country-header">
+    <span>🇰🇷 韩国</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="韩国 经济 SK Hynix's American Depositary Receipts debuted on Nasdaq on July 10, rising nearly 13 percent on the first trading day and raising 26.5 billion dollars, the largest initial public offering by a foreign company in the United States. SK海力士美国存托凭证7月10日在纳斯达克上市，首日上涨近13%，募资265亿美元，创下外国公司在美国最大规模首次公开募股纪录。">
+    <div class="tags">
+      <span class="tag tag-country">🇰🇷 韩国</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">SK Hynix's <span class="kw" style="color:#dc2626;font-weight:700;" title="American Depositary Receipts (ADR) / ADR（American Depositary Receipts，美国存托凭证） / 高级">American Depositary Receipts</span> debuted on Nasdaq on July 10, rising nearly 13 percent on the first trading day and raising 26.5 billion dollars, the largest <span class="kw" style="color:#dc2626;font-weight:700;" title="initial public offering (IPO) / IPO（Initial Public Offering，首次公开募股） / 高级">initial public offering</span> by a foreign company in the United States.</div>
+    <div class="zh-text">SK海力士美国存托凭证7月10日在纳斯达克<span class="kw" style="color:#dc2626;font-weight:700;" title="initial public offering (IPO) / IPO（Initial Public Offering，首次公开募股） / 高级">上市</span>，首日上涨近13%，募资265亿美元，创下外国公司在美国最大规模<span class="kw" style="color:#dc2626;font-weight:700;" title="initial public offering (IPO) / IPO（Initial Public Offering，首次公开募股） / 高级">首次公开募股</span>纪录。</div>
+    <div class="source-link"><a href="https://www.163.com/dy/article/L1HT5KMJ05198ETO.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="韩国 科技 SK Hynix Chief Executive Kwak Noh-Jung warned that the global memory chip industry is heading toward the most severe supply shortage in history in 2027, with demand continuing to outpace production capacity beyond 2030. SK海力士首席执行官郭鲁正警告，全球存储芯片行业正走向2027年史上最严重的供应短缺，需求超出产能的局面或将延续至2030年之后。">
+    <div class="tags">
+      <span class="tag tag-country">🇰🇷 韩国</span>
+      <span class="tag tag-category">科技</span>
+    </div>
+    <div class="en-text">SK Hynix Chief Executive Kwak Noh-Jung warned that the global memory chip industry is heading toward the most severe supply shortage in history in 2027, with demand continuing to outpace production capacity beyond 2030.</div>
+    <div class="zh-text">SK海力士首席执行官郭鲁正警告，全球存储芯片行业正走向2027年史上最严重的供应短缺，需求超出产能的局面或将延续至2030年之后。</div>
+    <div class="source-link"><a href="https://finance.sina.com.cn/roll/2026-07-11/doc-inihkyie3463408.shtml" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="墨西哥">
+  <div class="country-header">
+    <span>🇲🇽 墨西哥</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="墨西哥 外交 The Mexican government said on July 11 that it would pursue legal action in the United States following the deaths of several Mexican nationals during U.S. migration enforcement operations. 墨西哥政府7月11日表示，将就数名墨西哥公民在美国移民执法行动中死亡一事在美国提起诉讼。">
+    <div class="tags">
+      <span class="tag tag-country">🇲🇽 墨西哥</span>
+      <span class="tag tag-category">外交</span>
+    </div>
+    <div class="en-text">The Mexican government said on July 11 that it would pursue legal action in the United States following the deaths of several Mexican nationals during U.S. migration enforcement operations.</div>
+    <div class="zh-text">墨西哥政府7月11日表示，将就数名墨西哥公民在美国移民执法行动中死亡一事在美国提起诉讼。</div>
+    <div class="source-link"><a href="https://www.britishnewsnetwork.com/world?page=1" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="墨西哥 体育 The 2026 World Cup round-of-16 match between England and Mexico attracted 44.9 million television viewers in the United States, becoming the most-watched soccer game in American television history. 2026世界杯1/8决赛英格兰对阵墨西哥的比赛在美国吸引4490万电视观众，成为美国电视史上收视最高的足球赛事。">
+    <div class="tags">
+      <span class="tag tag-country">🇲🇽 墨西哥</span>
+      <span class="tag tag-category">体育</span>
+    </div>
+    <div class="en-text">The 2026 World Cup round-of-16 match between England and Mexico attracted 44.9 million television viewers in the United States, becoming the most-watched soccer game in American television history.</div>
+    <div class="zh-text">2026世界杯1/8决赛英格兰对阵墨西哥的比赛在美国吸引4490万电视观众，成为美国电视史上收视最高的足球赛事。</div>
+    <div class="source-link"><a href="https://new.qq.com/r/a/20260711A01TJG00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="俄罗斯">
+  <div class="country-header">
+    <span>🇷🇺 俄罗斯</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">2 条</span>
+  </div>
+
+  <div class="news-card" data-search="俄罗斯 能源 Russia imposed a temporary ban on diesel exports until July 31 after Ukrainian drone attacks disabled about 43 percent of the country's refining capacity, causing fuel shortages in many regions. 在乌克兰无人机打击导致约43%炼化产能瘫痪后，俄罗斯实施柴油临时出口禁令，有效期至7月31日，多地出现燃油短缺。">
+    <div class="tags">
+      <span class="tag tag-country">🇷🇺 俄罗斯</span>
+      <span class="tag tag-category">能源</span>
+    </div>
+    <div class="en-text">Russia imposed a temporary ban on diesel exports until July 31 after Ukrainian drone attacks disabled about 43 percent of the country's refining capacity, causing fuel shortages in many regions.</div>
+    <div class="zh-text">在乌克兰无人机打击导致约43%炼化产能瘫痪后，俄罗斯实施柴油临时<span class="kw" style="color:#2563eb;font-weight:700;" title="diesel export ban / 柴油出口禁令 / 中级">出口禁令</span>，有效期至7月31日，多地出现燃油短缺。</div>
+    <div class="source-link"><a href="https://new.qq.com/r/a/20260711A069WC00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="俄罗斯 地缘政治 Ukraine's armed forces announced on July 11 that they had destroyed 21 oil tankers, four tugboats and other vessels in the Sea of Azov, forcing Russia to suspend civilian shipping through the Kerch Strait. 乌克兰武装部队7月11日宣布在亚速海摧毁21艘油轮、4艘拖船及其他船只，迫使俄罗斯暂停刻赤海峡民用船舶通航。">
+    <div class="tags">
+      <span class="tag tag-country">🇷🇺 俄罗斯</span>
+      <span class="tag tag-category">地缘政治</span>
+    </div>
+    <div class="en-text">Ukraine's armed forces announced on July 11 that they had destroyed 21 oil tankers, four tugboats and other vessels in the Sea of Azov, forcing Russia to suspend civilian shipping through the Kerch Strait.</div>
+    <div class="zh-text">乌克兰武装部队7月11日宣布在亚速海摧毁21艘油轮、4艘拖船及其他船只，迫使俄罗斯暂停刻赤海峡民用船舶通航。</div>
+    <div class="source-link"><a href="https://new.qq.com/r/a/20260712A02JSS00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="美国">
+  <div class="country-header">
+    <span>🇺🇸 美国</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">6 条</span>
+  </div>
+
+  <div class="news-card" data-search="美国 科技 Apple sued OpenAI on July 10, accusing the artificial intelligence company of orchestrating the theft of trade secrets related to unreleased Apple products by recruiting former Apple employees. 苹果公司7月10日起诉OpenAI，指控这家人工智能公司通过招募前苹果员工窃取未发布苹果产品的相关商业机密。">
+    <div class="tags">
+      <span class="tag tag-country">🇺🇸 美国</span>
+      <span class="tag tag-category">科技</span>
+    </div>
+    <div class="en-text">Apple sued OpenAI on July 10, accusing the <span class="kw" style="color:#2563eb;font-weight:700;" title="artificial intelligence (AI) / AI（Artificial Intelligence，人工智能） / 中级">artificial intelligence</span> company of orchestrating the theft of trade secrets related to unreleased Apple products by recruiting former Apple employees.</div>
+    <div class="zh-text">苹果公司7月10日起诉OpenAI，指控这家人工智能公司通过招募前苹果员工窃取未发布苹果产品的相关商业机密。</div>
+    <div class="source-link"><a href="https://www.163.com/dy/article/L1HT5KMJ05198ETO.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="美国 科技 Meta plans to deploy 7 gigawatts of artificial intelligence computing power in 2026 and double that to 14 gigawatts in 2027, with total capital expenditure reaching 145 billion dollars, according to an internal memo. Meta内部备忘录显示，公司计划在2026年部署7吉瓦AI算力，2027年翻倍至14吉瓦，全年资本支出高达1450亿美元。">
+    <div class="tags">
+      <span class="tag tag-country">🇺🇸 美国</span>
+      <span class="tag tag-category">科技</span>
+    </div>
+    <div class="en-text">Meta plans to deploy 7 gigawatts of <span class="kw" style="color:#2563eb;font-weight:700;" title="artificial intelligence (AI) / AI（Artificial Intelligence，人工智能） / 中级">artificial intelligence</span> computing power in 2026 and double that to 14 gigawatts in 2027, with total capital expenditure reaching 145 billion dollars, according to an internal memo.</div>
+    <div class="zh-text">Meta内部备忘录显示，公司计划在2026年部署7吉瓦AI算力，2027年翻倍至14吉瓦，全年资本支出高达1450亿美元。</div>
+    <div class="source-link"><a href="https://new.qq.com/rain/a/20260711A02FTW00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="美国 经济 The U.S. Federal Reserve's semiannual monetary policy report, released on July 10, said inflation rose further this spring and that artificial intelligence infrastructure investment has become a new factor pushing prices higher. 美联储7月10日发布的半年度货币政策报告称，美国通胀今春进一步升温，AI基础设施建设已成为推高通胀的新因素。">
+    <div class="tags">
+      <span class="tag tag-country">🇺🇸 美国</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">The U.S. Federal Reserve's semiannual <span class="kw" style="color:#16a34a;font-weight:700;" title="monetary policy report / 货币政策报告 / 初级">monetary policy report</span>, released on July 10, said inflation rose further this spring and that <span class="kw" style="color:#2563eb;font-weight:700;" title="artificial intelligence (AI) / AI（Artificial Intelligence，人工智能） / 中级">artificial intelligence</span> infrastructure investment has become a new factor pushing prices higher.</div>
+    <div class="zh-text">美联储7月10日发布的半年度<span class="kw" style="color:#16a34a;font-weight:700;" title="monetary policy report / 货币政策报告 / 初级">货币政策报告</span>称，美国通胀今春进一步升温，AI基础设施建设已成为推高通胀的新因素。</div>
+    <div class="source-link"><a href="https://new.qq.com/r/a/20260711A02FTW00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="美国 航天 SpaceX launched a Falcon 9 rocket from Vandenberg Space Force Base on July 11, carrying Starlink Group 17-48 satellites into low Earth orbit. SpaceX于7月11日从范登堡太空军基地发射一枚猎鹰9号火箭，将Starlink Group 17-48卫星送入近地轨道。">
+    <div class="tags">
+      <span class="tag tag-country">🇺🇸 美国</span>
+      <span class="tag tag-category">航天</span>
+    </div>
+    <div class="en-text">SpaceX launched a Falcon 9 rocket from Vandenberg Space Force Base on July 11, carrying Starlink Group 17-48 satellites into <span class="kw" style="color:#16a34a;font-weight:700;" title="low Earth orbit / 近地轨道 / 初级">low Earth orbit</span>.</div>
+    <div class="zh-text">SpaceX于7月11日从范登堡太空军基地发射一枚猎鹰9号<span class="kw" style="color:#2563eb;font-weight:700;" title="reusable rocket / 可重复使用火箭 / 中级">火箭</span>，将Starlink Group 17-48卫星送入<span class="kw" style="color:#16a34a;font-weight:700;" title="low Earth orbit / 近地轨道 / 初级">近地轨道</span>。</div>
+    <div class="source-link"><a href="https://orbitalradar.com/launch/2026-07-11-falcon-9-ft5-starlink-group-17-48" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="美国 医疗 The U.S. Food and Drug Administration approved Merck's Keytruda combined with Pfizer and Astellas' Padcev as a neoadjuvant and adjuvant treatment for muscle-invasive bladder cancer, regardless of cisplatin eligibility. 美国食品药品监督管理局批准默沙东的Keytruda联合辉瑞和安斯泰来的Padcev，用于肌层浸润性膀胱癌成人患者的新辅助和辅助治疗，不再限于不适合顺铂治疗的人群。">
+    <div class="tags">
+      <span class="tag tag-country">🇺🇸 美国</span>
+      <span class="tag tag-category">医疗</span>
+    </div>
+    <div class="en-text">The U.S. <span class="kw" style="color:#dc2626;font-weight:700;" title="food and drug administration (FDA) / FDA（Food and Drug Administration，美国食品药品监督管理局） / 高级">Food and Drug Administration</span> approved Merck's Keytruda combined with Pfizer and Astellas' Padcev as a neoadjuvant and adjuvant treatment for muscle-invasive bladder cancer, regardless of cisplatin eligibility.</div>
+    <div class="zh-text">美国食品药品监督管理局批准默沙东的Keytruda联合辉瑞和安斯泰来的Padcev，用于肌层浸润性膀胱癌成人患者的新辅助和辅助治疗，不再限于不适合顺铂治疗的人群。</div>
+    <div class="source-link"><a href="https://new.qq.com/r/a/20260711A02HVU00" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="美国 科技 Electric aviation company Beta Technologies completed the first interstate flight under the U.S. Department of Transportation's electric vertical take-off and landing integration pilot program, transporting synthetic organs between Virginia and Maryland. 电动航空企业Beta Technologies完成了美国交通部电动垂直起降飞行器整合试点计划下的首次跨州飞行，在弗吉尼亚州和马里兰州之间运送人造器官。">
+    <div class="tags">
+      <span class="tag tag-country">🇺🇸 美国</span>
+      <span class="tag tag-category">科技</span>
+    </div>
+    <div class="en-text">Electric aviation company Beta Technologies completed the first interstate flight under the U.S. Department of Transportation's <span class="kw" style="color:#dc2626;font-weight:700;" title="electric vertical take-off and landing (eVTOL) / eVTOL（Electric Vertical Take-Off and Landing，电动垂直起降飞行器） / 高级">electric vertical take-off and landing</span> integration pilot program, transporting <span class="kw" style="color:#16a34a;font-weight:700;" title="synthetic organ / 人造器官 / 初级">synthetic organs</span> between Virginia and Maryland.</div>
+    <div class="zh-text">电动航空企业Beta Technologies完成了美国交通部电动垂直起降飞行器整合试点计划下的首次跨州飞行，在弗吉尼亚州和马里兰州之间运送<span class="kw" style="color:#16a34a;font-weight:700;" title="synthetic organ / 人造器官 / 初级">人造器官</span>。</div>
+    <div class="source-link"><a href="https://www.163.com/dy/article/L1HE0E6I05568W0A.html" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="country-section" data-search="全球">
+  <div class="country-header">
+    <span>🌍 全球</span>
+    <span style="font-size:12px;color:var(--text-secondary);font-weight:400">3 条</span>
+  </div>
+
+  <div class="news-card" data-search="全球 地缘政治 U.S. President Donald Trump said on July 10 that the United States had agreed to continue negotiations with Iran, while Iran's foreign ministry stated it had never requested talks but accepted mediator visits, leaving the path to a Strait of Hormuz ceasefire uncertain. 美国总统特朗普7月10日表示美国已同意继续与伊朗谈判，而伊朗外交部称从未提出谈判诉求但同意调解方访问，霍尔木兹海峡停火前景仍不明朗。">
+    <div class="tags">
+      <span class="tag tag-country">🌍 全球</span>
+      <span class="tag tag-category">地缘政治</span>
+    </div>
+    <div class="en-text">U.S. President Donald Trump said on July 10 that the United States had agreed to continue negotiations with Iran, while Iran's foreign ministry stated it had never requested talks but accepted mediator visits, leaving the path to a Strait of Hormuz ceasefire uncertain.</div>
+    <div class="zh-text">美国总统特朗普7月10日表示美国已同意继续与伊朗谈判，而伊朗外交部称从未提出谈判诉求但同意调解方访问，霍尔木兹海峡停火前景仍不明朗。</div>
+    <div class="source-link"><a href="https://finance.sina.com.cn/wm/2026-07-11/doc-inihkyia6687836.shtml" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="全球 能源 International Energy Agency Executive Director Fatih Birol warned on July 11 that Europe's electrification rate has stagnated at around 23 percent for a decade, calling it a major mistake that weakens the continent's competitiveness and energy sovereignty. 国际能源署署长法提赫·比罗尔7月11日警告称，欧洲电气化率在过去十年停滞在约23%，这是一个削弱欧洲竞争力和能源主权的重大错误。">
+    <div class="tags">
+      <span class="tag tag-country">🌍 全球</span>
+      <span class="tag tag-category">能源</span>
+    </div>
+    <div class="en-text">International Energy Agency Executive Director Fatih Birol warned on July 11 that Europe's <span class="kw" style="color:#2563eb;font-weight:700;" title="electrification rate / 电气化率 / 中级">electrification rate</span> has stagnated at around 23 percent for a decade, calling it a major mistake that weakens the continent's competitiveness and energy sovereignty.</div>
+    <div class="zh-text">国际能源署署长法提赫·比罗尔7月11日警告称，欧洲<span class="kw" style="color:#2563eb;font-weight:700;" title="electrification rate / 电气化率 / 中级">电气化率</span>在过去十年停滞在约23%，这是一个削弱欧洲竞争力和能源主权的重大错误。</div>
+    <div class="source-link"><a href="https://www.guancha.cn/internation/2026_07_11_823434.shtml" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+
+  <div class="news-card" data-search="全球 经济 The International Monetary Fund lowered its 2026 global economic growth forecast to 3.0 percent but raised China's growth forecast to 4.6 percent, according to a report cited on July 11. 7月11日援引的报告显示，国际货币基金组织将2026年全球经济增速预测下调至3.0%，但将中国经济增长预期上调至4.6%。">
+    <div class="tags">
+      <span class="tag tag-country">🌍 全球</span>
+      <span class="tag tag-category">经济</span>
+    </div>
+    <div class="en-text">The International Monetary Fund lowered its 2026 global economic growth forecast to 3.0 percent but raised China's growth forecast to 4.6 percent, according to a report cited on July 11.</div>
+    <div class="zh-text">7月11日援引的报告显示，国际货币基金组织将2026年全球经济增速预测下调至3.0%，但将中国经济增长预期上调至4.6%。</div>
+    <div class="source-link"><a href="https://finance.sina.com.cn/wm/2026-07-11/doc-inihkyia6687836.shtml" target="_blank" rel="noopener">🔗 来源链接</a></div>
+  </div>
+</div>
+<div class="section-title"><span class="icon">🔑</span> 关键词表</div>
+<div class="keywords-section">
+
+  <div class="kw-card" data-search="American Depositary Receipts (ADR) ADR（American Depositary Receipts，美国存托凭证） 经济 高级">
+    <div class="kw-pair">
+      <div class="kw-en">American Depositary Receipts (ADR)</div>
+      <div class="kw-zh">ADR（American Depositary Receipts，美国存托凭证）</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="background:#dc2626">高级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="electric vertical take-off and landing (eVTOL) eVTOL（Electric Vertical Take-Off and Landing，电动垂直起降飞行器） 科技 高级">
+    <div class="kw-pair">
+      <div class="kw-en">electric vertical take-off and landing (eVTOL)</div>
+      <div class="kw-zh">eVTOL（Electric Vertical Take-Off and Landing，电动垂直起降飞行器）</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">科技</span>
+      <span class="kw-diff" style="background:#dc2626">高级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="electromagnetic railgun 电磁轨道炮 科技 高级">
+    <div class="kw-pair">
+      <div class="kw-en">electromagnetic railgun</div>
+      <div class="kw-zh">电磁轨道炮</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">科技</span>
+      <span class="kw-diff" style="background:#dc2626">高级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="food and drug administration (FDA) FDA（Food and Drug Administration，美国食品药品监督管理局） 医疗 高级">
+    <div class="kw-pair">
+      <div class="kw-en">food and drug administration (FDA)</div>
+      <div class="kw-zh">FDA（Food and Drug Administration，美国食品药品监督管理局）</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">医疗</span>
+      <span class="kw-diff" style="background:#dc2626">高级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="geopolitical tension 地缘政治紧张 地缘政治 高级">
+    <div class="kw-pair">
+      <div class="kw-en">geopolitical tension</div>
+      <div class="kw-zh">地缘政治紧张</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">地缘政治</span>
+      <span class="kw-diff" style="background:#dc2626">高级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="Government Pension Investment Fund (GPIF) GPIF（Government Pension Investment Fund，政府养老投资基金） 经济 高级">
+    <div class="kw-pair">
+      <div class="kw-en">Government Pension Investment Fund (GPIF)</div>
+      <div class="kw-zh">GPIF（Government Pension Investment Fund，政府养老投资基金）</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="background:#dc2626">高级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="high-bandwidth memory (HBM) HBM（High-Bandwidth Memory，高带宽存储器） 科技 高级">
+    <div class="kw-pair">
+      <div class="kw-en">high-bandwidth memory (HBM)</div>
+      <div class="kw-zh">HBM（High-Bandwidth Memory，高带宽存储器）</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">科技</span>
+      <span class="kw-diff" style="background:#dc2626">高级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="initial public offering (IPO) IPO（Initial Public Offering，首次公开募股） 经济 高级">
+    <div class="kw-pair">
+      <div class="kw-en">initial public offering (IPO)</div>
+      <div class="kw-zh">IPO（Initial Public Offering，首次公开募股）</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="background:#dc2626">高级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="net-capture recovery 网系回收 航天 高级">
+    <div class="kw-pair">
+      <div class="kw-en">net-capture recovery</div>
+      <div class="kw-zh">网系回收</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">航天</span>
+      <span class="kw-diff" style="background:#dc2626">高级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="Phase III clinical trial III期临床试验 医疗 高级">
+    <div class="kw-pair">
+      <div class="kw-en">Phase III clinical trial</div>
+      <div class="kw-zh">III期临床试验</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">医疗</span>
+      <span class="kw-diff" style="background:#dc2626">高级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="air conditioning penetration 空调普及率 社会 中级">
+    <div class="kw-pair">
+      <div class="kw-en">air conditioning penetration</div>
+      <div class="kw-zh">空调普及率</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">社会</span>
+      <span class="kw-diff" style="background:#2563eb">中级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="artificial intelligence (AI) AI（Artificial Intelligence，人工智能） 科技 中级">
+    <div class="kw-pair">
+      <div class="kw-en">artificial intelligence (AI)</div>
+      <div class="kw-zh">AI（Artificial Intelligence，人工智能）</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">科技</span>
+      <span class="kw-diff" style="background:#2563eb">中级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="cloud provider 云服务商 金融科技 中级">
+    <div class="kw-pair">
+      <div class="kw-en">cloud provider</div>
+      <div class="kw-zh">云服务商</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">金融科技</span>
+      <span class="kw-diff" style="background:#2563eb">中级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="consumer price index (CPI) CPI（Consumer Price Index，居民消费价格指数） 经济 中级">
+    <div class="kw-pair">
+      <div class="kw-en">consumer price index (CPI)</div>
+      <div class="kw-zh">CPI（Consumer Price Index，居民消费价格指数）</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="background:#2563eb">中级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="critical third party 关键第三方 金融科技 中级">
+    <div class="kw-pair">
+      <div class="kw-en">critical third party</div>
+      <div class="kw-zh">关键第三方</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">金融科技</span>
+      <span class="kw-diff" style="background:#2563eb">中级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="diesel export ban 柴油出口禁令 能源 中级">
+    <div class="kw-pair">
+      <div class="kw-en">diesel export ban</div>
+      <div class="kw-zh">柴油出口禁令</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">能源</span>
+      <span class="kw-diff" style="background:#2563eb">中级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="electrification rate 电气化率 能源 中级">
+    <div class="kw-pair">
+      <div class="kw-en">electrification rate</div>
+      <div class="kw-zh">电气化率</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">能源</span>
+      <span class="kw-diff" style="background:#2563eb">中级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="heatwave 热浪 环境政策 中级">
+    <div class="kw-pair">
+      <div class="kw-en">heatwave</div>
+      <div class="kw-zh">热浪</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">环境政策</span>
+      <span class="kw-diff" style="background:#2563eb">中级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="memory chip shortage 存储芯片短缺 科技 中级">
+    <div class="kw-pair">
+      <div class="kw-en">memory chip shortage</div>
+      <div class="kw-zh">存储芯片短缺</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">科技</span>
+      <span class="kw-diff" style="background:#2563eb">中级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="reusable rocket 可重复使用火箭 航天 中级">
+    <div class="kw-pair">
+      <div class="kw-en">reusable rocket</div>
+      <div class="kw-zh">可重复使用火箭</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">航天</span>
+      <span class="kw-diff" style="background:#2563eb">中级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="super typhoon 超强台风 灾害 中级">
+    <div class="kw-pair">
+      <div class="kw-en">super typhoon</div>
+      <div class="kw-zh">超强台风</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">灾害</span>
+      <span class="kw-diff" style="background:#2563eb">中级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="trade partner diversification 贸易伙伴多元化 外交 中级">
+    <div class="kw-pair">
+      <div class="kw-en">trade partner diversification</div>
+      <div class="kw-zh">贸易伙伴多元化</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">外交</span>
+      <span class="kw-diff" style="background:#2563eb">中级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="uranium export 铀出口 外交 中级">
+    <div class="kw-pair">
+      <div class="kw-en">uranium export</div>
+      <div class="kw-zh">铀出口</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">外交</span>
+      <span class="kw-diff" style="background:#2563eb">中级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="wildfire evacuation 森林火灾疏散 灾害 中级">
+    <div class="kw-pair">
+      <div class="kw-en">wildfire evacuation</div>
+      <div class="kw-zh">森林火灾疏散</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">灾害</span>
+      <span class="kw-diff" style="background:#2563eb">中级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="automobile export 汽车出口 经济 初级">
+    <div class="kw-pair">
+      <div class="kw-en">automobile export</div>
+      <div class="kw-zh">汽车出口</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="ceasefire negotiation 停火谈判 地缘政治 初级">
+    <div class="kw-pair">
+      <div class="kw-en">ceasefire negotiation</div>
+      <div class="kw-zh">停火谈判</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">地缘政治</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="corporate bankruptcy 企业破产 社会 初级">
+    <div class="kw-pair">
+      <div class="kw-en">corporate bankruptcy</div>
+      <div class="kw-zh">企业破产</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">社会</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="crude oil export tax 原油出口税 能源 初级">
+    <div class="kw-pair">
+      <div class="kw-en">crude oil export tax</div>
+      <div class="kw-zh">原油出口税</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">能源</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="electricity load 用电负荷 能源 初级">
+    <div class="kw-pair">
+      <div class="kw-en">electricity load</div>
+      <div class="kw-zh">用电负荷</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">能源</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="low Earth orbit 近地轨道 航天 初级">
+    <div class="kw-pair">
+      <div class="kw-en">low Earth orbit</div>
+      <div class="kw-zh">近地轨道</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">航天</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="monetary policy report 货币政策报告 经济 初级">
+    <div class="kw-pair">
+      <div class="kw-en">monetary policy report</div>
+      <div class="kw-zh">货币政策报告</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="network outage 网络中断 社会 初级">
+    <div class="kw-pair">
+      <div class="kw-en">network outage</div>
+      <div class="kw-zh">网络中断</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">社会</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="pension fund 养老基金 经济 初级">
+    <div class="kw-pair">
+      <div class="kw-en">pension fund</div>
+      <div class="kw-zh">养老基金</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="strategic partnership 战略伙伴关系 外交 初级">
+    <div class="kw-pair">
+      <div class="kw-en">strategic partnership</div>
+      <div class="kw-zh">战略伙伴关系</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">外交</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="summer grain output 夏粮产量 经济 初级">
+    <div class="kw-pair">
+      <div class="kw-en">summer grain output</div>
+      <div class="kw-zh">夏粮产量</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="synthetic organ 人造器官 医疗 初级">
+    <div class="kw-pair">
+      <div class="kw-en">synthetic organ</div>
+      <div class="kw-zh">人造器官</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">医疗</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="trade tariff 贸易关税 经济 初级">
+    <div class="kw-pair">
+      <div class="kw-en">trade tariff</div>
+      <div class="kw-zh">贸易关税</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">经济</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="vaccine efficacy 疫苗效力 医疗 初级">
+    <div class="kw-pair">
+      <div class="kw-en">vaccine efficacy</div>
+      <div class="kw-zh">疫苗效力</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">医疗</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+  <div class="kw-card" data-search="World Cup semifinal 世界杯半决赛 体育 初级">
+    <div class="kw-pair">
+      <div class="kw-en">World Cup semifinal</div>
+      <div class="kw-zh">世界杯半决赛</div>
+    </div>
+    <div class="kw-meta">
+      <span class="kw-cat">体育</span>
+      <span class="kw-diff" style="background:#16a34a">初级</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="section-title"><span class="icon">📋</span> 关键词汇总表</div>
+<div class="keywords-section" style="padding:0">
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>英文关键词</th>
+        <th>中文关键词</th>
+        <th>类别</th>
+        <th>难度</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>American Depositary Receipts (ADR)</td>
+        <td>ADR（American Depositary Receipts，美国存托凭证）</td>
+        <td>经济</td>
+        <td><span class="kw-diff" style="background:#dc2626">高级</span></td>
+      </tr>
+
+      <tr>
+        <td>electric vertical take-off and landing (eVTOL)</td>
+        <td>eVTOL（Electric Vertical Take-Off and Landing，电动垂直起降飞行器）</td>
+        <td>科技</td>
+        <td><span class="kw-diff" style="background:#dc2626">高级</span></td>
+      </tr>
+
+      <tr>
+        <td>electromagnetic railgun</td>
+        <td>电磁轨道炮</td>
+        <td>科技</td>
+        <td><span class="kw-diff" style="background:#dc2626">高级</span></td>
+      </tr>
+
+      <tr>
+        <td>food and drug administration (FDA)</td>
+        <td>FDA（Food and Drug Administration，美国食品药品监督管理局）</td>
+        <td>医疗</td>
+        <td><span class="kw-diff" style="background:#dc2626">高级</span></td>
+      </tr>
+
+      <tr>
+        <td>geopolitical tension</td>
+        <td>地缘政治紧张</td>
+        <td>地缘政治</td>
+        <td><span class="kw-diff" style="background:#dc2626">高级</span></td>
+      </tr>
+
+      <tr>
+        <td>Government Pension Investment Fund (GPIF)</td>
+        <td>GPIF（Government Pension Investment Fund，政府养老投资基金）</td>
+        <td>经济</td>
+        <td><span class="kw-diff" style="background:#dc2626">高级</span></td>
+      </tr>
+
+      <tr>
+        <td>high-bandwidth memory (HBM)</td>
+        <td>HBM（High-Bandwidth Memory，高带宽存储器）</td>
+        <td>科技</td>
+        <td><span class="kw-diff" style="background:#dc2626">高级</span></td>
+      </tr>
+
+      <tr>
+        <td>initial public offering (IPO)</td>
+        <td>IPO（Initial Public Offering，首次公开募股）</td>
+        <td>经济</td>
+        <td><span class="kw-diff" style="background:#dc2626">高级</span></td>
+      </tr>
+
+      <tr>
+        <td>net-capture recovery</td>
+        <td>网系回收</td>
+        <td>航天</td>
+        <td><span class="kw-diff" style="background:#dc2626">高级</span></td>
+      </tr>
+
+      <tr>
+        <td>Phase III clinical trial</td>
+        <td>III期临床试验</td>
+        <td>医疗</td>
+        <td><span class="kw-diff" style="background:#dc2626">高级</span></td>
+      </tr>
+
+      <tr>
+        <td>air conditioning penetration</td>
+        <td>空调普及率</td>
+        <td>社会</td>
+        <td><span class="kw-diff" style="background:#2563eb">中级</span></td>
+      </tr>
+
+      <tr>
+        <td>artificial intelligence (AI)</td>
+        <td>AI（Artificial Intelligence，人工智能）</td>
+        <td>科技</td>
+        <td><span class="kw-diff" style="background:#2563eb">中级</span></td>
+      </tr>
+
+      <tr>
+        <td>cloud provider</td>
+        <td>云服务商</td>
+        <td>金融科技</td>
+        <td><span class="kw-diff" style="background:#2563eb">中级</span></td>
+      </tr>
+
+      <tr>
+        <td>consumer price index (CPI)</td>
+        <td>CPI（Consumer Price Index，居民消费价格指数）</td>
+        <td>经济</td>
+        <td><span class="kw-diff" style="background:#2563eb">中级</span></td>
+      </tr>
+
+      <tr>
+        <td>critical third party</td>
+        <td>关键第三方</td>
+        <td>金融科技</td>
+        <td><span class="kw-diff" style="background:#2563eb">中级</span></td>
+      </tr>
+
+      <tr>
+        <td>diesel export ban</td>
+        <td>柴油出口禁令</td>
+        <td>能源</td>
+        <td><span class="kw-diff" style="background:#2563eb">中级</span></td>
+      </tr>
+
+      <tr>
+        <td>electrification rate</td>
+        <td>电气化率</td>
+        <td>能源</td>
+        <td><span class="kw-diff" style="background:#2563eb">中级</span></td>
+      </tr>
+
+      <tr>
+        <td>heatwave</td>
+        <td>热浪</td>
+        <td>环境政策</td>
+        <td><span class="kw-diff" style="background:#2563eb">中级</span></td>
+      </tr>
+
+      <tr>
+        <td>memory chip shortage</td>
+        <td>存储芯片短缺</td>
+        <td>科技</td>
+        <td><span class="kw-diff" style="background:#2563eb">中级</span></td>
+      </tr>
+
+      <tr>
+        <td>reusable rocket</td>
+        <td>可重复使用火箭</td>
+        <td>航天</td>
+        <td><span class="kw-diff" style="background:#2563eb">中级</span></td>
+      </tr>
+
+      <tr>
+        <td>super typhoon</td>
+        <td>超强台风</td>
+        <td>灾害</td>
+        <td><span class="kw-diff" style="background:#2563eb">中级</span></td>
+      </tr>
+
+      <tr>
+        <td>trade partner diversification</td>
+        <td>贸易伙伴多元化</td>
+        <td>外交</td>
+        <td><span class="kw-diff" style="background:#2563eb">中级</span></td>
+      </tr>
+
+      <tr>
+        <td>uranium export</td>
+        <td>铀出口</td>
+        <td>外交</td>
+        <td><span class="kw-diff" style="background:#2563eb">中级</span></td>
+      </tr>
+
+      <tr>
+        <td>wildfire evacuation</td>
+        <td>森林火灾疏散</td>
+        <td>灾害</td>
+        <td><span class="kw-diff" style="background:#2563eb">中级</span></td>
+      </tr>
+
+      <tr>
+        <td>automobile export</td>
+        <td>汽车出口</td>
+        <td>经济</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+      <tr>
+        <td>ceasefire negotiation</td>
+        <td>停火谈判</td>
+        <td>地缘政治</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+      <tr>
+        <td>corporate bankruptcy</td>
+        <td>企业破产</td>
+        <td>社会</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+      <tr>
+        <td>crude oil export tax</td>
+        <td>原油出口税</td>
+        <td>能源</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+      <tr>
+        <td>electricity load</td>
+        <td>用电负荷</td>
+        <td>能源</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+      <tr>
+        <td>low Earth orbit</td>
+        <td>近地轨道</td>
+        <td>航天</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+      <tr>
+        <td>monetary policy report</td>
+        <td>货币政策报告</td>
+        <td>经济</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+      <tr>
+        <td>network outage</td>
+        <td>网络中断</td>
+        <td>社会</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+      <tr>
+        <td>pension fund</td>
+        <td>养老基金</td>
+        <td>经济</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+      <tr>
+        <td>strategic partnership</td>
+        <td>战略伙伴关系</td>
+        <td>外交</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+      <tr>
+        <td>summer grain output</td>
+        <td>夏粮产量</td>
+        <td>经济</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+      <tr>
+        <td>synthetic organ</td>
+        <td>人造器官</td>
+        <td>医疗</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+      <tr>
+        <td>trade tariff</td>
+        <td>贸易关税</td>
+        <td>经济</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+      <tr>
+        <td>vaccine efficacy</td>
+        <td>疫苗效力</td>
+        <td>医疗</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+      <tr>
+        <td>World Cup semifinal</td>
+        <td>世界杯半决赛</td>
+        <td>体育</td>
+        <td><span class="kw-diff" style="background:#16a34a">初级</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  2026-07-11 · 每日新闻中英对照<br>
+  关键词按难度颜色标注，下划线高亮
+</div>
+
+<button class="back-top" onclick="scrollTo(0,0)" aria-label="回到顶部">↑</button>
+
+<script>
+function filterContent() {
+  var q = document.getElementById('searchInput').value.toLowerCase().trim();
+  var items = document.querySelectorAll('[data-search]');
+  items.forEach(function(el) {
+    var text = el.getAttribute('data-search').toLowerCase();
+    if (q === '' || text.indexOf(q) !== -1) {
+      el.style.display = '';
+    } else {
+      el.style.display = 'none';
+    }
+  });
+  var sections = document.querySelectorAll('.country-section');
+  sections.forEach(function(s) {
+    var visible = s.querySelectorAll('.news-card:not([style*="display: none"])');
+    if (q !== '' && visible.length === 0) {
+      s.style.display = 'none';
+    } else {
+      s.style.display = '';
+    }
+  });
+}
+
+function toggleTheme() {
+  var body = document.body;
+  var btn = document.querySelector('.theme-toggle');
+  if (body.classList.contains('green-mode')) {
+    body.classList.remove('green-mode');
+    body.classList.add('gray-mode');
+    btn.textContent = '⬜ 浅灰';
+    localStorage.setItem('wig-theme', 'gray');
+  } else if (body.classList.contains('gray-mode')) {
+    body.classList.remove('gray-mode');
+    btn.textContent = '🟩 浅绿';
+    localStorage.setItem('wig-theme', 'default');
+  } else {
+    body.classList.add('green-mode');
+    btn.textContent = '🟩 浅绿';
+    localStorage.setItem('wig-theme', 'green');
+  }
+}
+
+(function initTheme() {
+  var saved = localStorage.getItem('wig-theme');
+  var body = document.body;
+  var btn = document.querySelector('.theme-toggle');
+  if (saved === 'green') {
+    body.classList.add('green-mode');
+    btn.textContent = '🟩 浅绿';
+  } else if (saved === 'gray') {
+    body.classList.add('gray-mode');
+    btn.textContent = '⬜ 浅灰';
+  } else {
+    btn.textContent = '🟩 浅绿';
+  }
+})();
+</script>
+<script>window.__TTS_DATE__ = '2026-07-11'; window.__TTS_MAP__ = {"memory chip shortage": "memory_chip_shortage_1a96c84a673d.mp3", "super typhoon": "super_typhoon_9983b43de07e.mp3", "The International Monetary Fund lowered its 2026 global economic growth forecast to 3.0 percent but raised China's growth forecast to 4.6 percent, according to a report cited on July 11.": "the_international_monetary_fun_68d0432e68c5.mp3", "Electric aviation company Beta Technologies completed the first interstate flight under the U.S. Department of Transportation's electric vertical take-off and landing integration pilot program, transporting synthetic organs between Virginia and Maryland.": "electric_aviation_company_beta_9c924a6f9fbb.mp3", "The Mexican government said on July 11 that it would pursue legal action in the United States following the deaths of several Mexican nationals during U.S. migration enforcement operations.": "the_mexican_government_said_on_e0ccf5b63b76.mp3", "critical third party": "critical_third_party_1c8e17869a00.mp3", "The United States announced it would suspend tariffs of up to 40 percent on some Brazilian agricultural products, including beef, coffee and fruit, after trade negotiations between the two countries showed partial progress.": "the_united_states_announced_it_986555a7595b.mp3", "summer grain output": "summer_grain_output_93d1a39df04c.mp3", "air conditioning penetration": "air_conditioning_penetration_bdcfd4af99b2.mp3", "Government Pension Investment Fund (GPIF)": "government_pension_investment_350c4cb7607d.mp3", "reusable rocket": "reusable_rocket_29cb21cfd699.mp3", "Apple sued OpenAI on July 10, accusing the artificial intelligence company of orchestrating the theft of trade secrets related to unreleased Apple products by recruiting former Apple employees.": "apple_sued_openai_on_july_10_16d9f342fc24.mp3", "ceasefire negotiation": "ceasefire_negotiation_561ed4e0260f.mp3", "Chengdu Olymvax Biopharmaceuticals announced that its recombinant Staphylococcus aureus vaccine completed a Phase III clinical trial with an efficacy of 73.25 percent, exceeding the preset target of 60 percent.": "chengdu_olymvax_biopharmaceuti_0a39e3e427fa.mp3", "Canadian Prime Minister Mark Carney began a visit to Saudi Arabia, during which the two countries signed 13 commercial agreements and memorandums of understanding as Ottawa seeks to diversify trade partners beyond the United States.": "canadian_prime_minister_mark_c_68f06ffdfa69.mp3", "Japanese Finance Minister Satsuki Katayama called on public pension funds, including the Government Pension Investment Fund, to increase investment in domestic financial assets, causing the yen to jump sharply.": "japanese_finance_minister_sats_d52407cf4b95.mp3", "Super Typhoon Bavi approached Japan's Ryukyu Islands on July 11, prompting local authorities to issue warnings and Japan Coast Guard patrol vessels to move through the Taiwan Strait to avoid the storm.": "super_typhoon_bavi_approached_e455e6384c55.mp3", "SK Hynix Chief Executive Kwak Noh-Jung warned that the global memory chip industry is heading toward the most severe supply shortage in history in 2027, with demand continuing to outpace production capacity beyond 2030.": "sk_hynix_chief_executive_kwak_01931c750f93.mp3", "France continued to suffer from a severe heatwave on July 11, forcing the Louvre Museum in Paris to close early at 4 p.m. and prompting hospitals to urgently purchase air conditioners as heat-related illnesses surged.": "france_continued_to_suffer_fro_5e2c4f3fcf50.mp3", "The U.S. Federal Reserve's semiannual monetary policy report, released on July 10, said inflation rose further this spring and that artificial intelligence infrastructure investment has become a new factor pushing prices higher.": "the_u_s_federal_reserve_s_sem_0c3ddddbc446.mp3", "vaccine efficacy": "vaccine_efficacy_5dcfb3310096.mp3", "consumer price index (CPI)": "consumer_price_index_cpi_dce3dc4ff3a5.mp3", "synthetic organ": "synthetic_organ_04a14399eca3.mp3", "crude oil export tax": "crude_oil_export_tax_cefb4a021717.mp3", "net-capture recovery": "net_capture_recovery_79898a99a40a.mp3", "The UK Ministry of Defence unveiled a 2 billion pound plan on July 11 to build an artificial intelligence combat laboratory and upgrade army training systems using smart technologies.": "the_uk_ministry_of_defence_unv_df21cf9b5072.mp3", "Russia imposed a temporary ban on diesel exports until July 31 after Ukrainian drone attacks disabled about 43 percent of the country's refining capacity, causing fuel shortages in many regions.": "russia_imposed_a_temporary_ban_cfc5e3e8cc92.mp3", "The U.S. Food and Drug Administration approved Merck's Keytruda combined with Pfizer and Astellas' Padcev as a neoadjuvant and adjuvant treatment for muscle-invasive bladder cancer, regardless of cisplatin eligibility.": "the_u_s_food_and_drug_adminis_0541dce0d160.mp3", "strategic partnership": "strategic_partnership_a430c01f4802.mp3", "Typhoon Bavi, a super typhoon, approached China's eastern coast on July 11, prompting Shanghai to relocate nearly 300,000 people and cancel more than 2,800 flights at Pudong and Hangzhou airports.": "typhoon_bavi_a_super_typhoon_4a9138222665.mp3", "Meta plans to deploy 7 gigawatts of artificial intelligence computing power in 2026 and double that to 14 gigawatts in 2027, with total capital expenditure reaching 145 billion dollars, according to an internal memo.": "meta_plans_to_deploy_7_gigawat_5c78c5cfd423.mp3", "artificial intelligence (AI)": "artificial_intelligence_ai_87f93facf1c3.mp3", "American Depositary Receipts (ADR)": "american_depositary_receipts_5cad663712ca.mp3", "World Cup semifinal": "world_cup_semifinal_97856d751a5d.mp3", "Italy has one of the highest ratios of electricity prices to natural gas prices in the European Union, according to a draft European Commission plan, which is preparing new measures to accelerate electrification across the bloc.": "italy_has_one_of_the_highest_r_b6e080069564.mp3", "trade partner diversification": "trade_partner_diversification_7eebd413b807.mp3", "network outage": "network_outage_f6060a30d27c.mp3", "A wildfire in Almeria, southern Spain, which may have been caused by a fallen overhead power line, has killed at least 12 people, left 19 missing and forced about 1,000 residents to evacuate.": "a_wildfire_in_almeria_souther_d5230ae127e3.mp3", "China exported 5.096 million vehicles in the first half of 2026, a year-on-year increase of 65.3 percent, according to the China Association of Automobile Manufacturers.": "china_exported_5_096_million_v_2f5f78e424cc.mp3", "German heat pump installers and consumers rushed to submit subsidy applications before new rules took effect, because the government decided to reduce the maximum eligible cost for new heating systems from 30,000 euros to 28,000 euros.": "german_heat_pump_installers_an_bbb193cf5b2d.mp3", "U.S. President Donald Trump said on July 10 that the United States had agreed to continue negotiations with Iran, while Iran's foreign ministry stated it had never requested talks but accepted mediator visits, leaving the path to a Strait of Hormuz ceasefire uncertain.": "u_s_president_donald_trump_sa_81664c5057b9.mp3", "China's Long March-10B carrier rocket successfully launched from Hainan on July 10 and achieved the world's first sea-based net-capture recovery of a rocket first stage, marking a historic breakthrough in reusable launch vehicle technology.": "china_s_long_march_10b_carrier_985cfa2cb064.mp3", "monetary policy report": "monetary_policy_report_aa34740280e9.mp3", "electrification rate": "electrification_rate_09339d556b4c.mp3", "heatwave": "heatwave_a853c3220805.mp3", "SK Hynix's American Depositary Receipts debuted on Nasdaq on July 10, rising nearly 13 percent on the first trading day and raising 26.5 billion dollars, the largest initial public offering by a foreign company in the United States.": "sk_hynix_s_american_depositary_cd19dc4fe56c.mp3", "trade tariff": "trade_tariff_811d6b73d09f.mp3", "The 2026 World Cup round-of-16 match between England and Mexico attracted 44.9 million television viewers in the United States, becoming the most-watched soccer game in American television history.": "the_2026_world_cup_round_of_16_32a3c94fd26f.mp3", "Phase III clinical trial": "phase_iii_clinical_trial_6a355d78a03a.mp3", "electricity load": "electricity_load_ae21a6dad6c6.mp3", "Australia's largest telecommunications provider Telstra faced a nationwide outage on July 10, and a Senate inquiry demanded the company testify about disruptions to emergency calls across the country.": "australia_s_largest_telecommun_149c3c41af8f.mp3", "India is experiencing extreme summer temperatures of 45 to 48 degrees Celsius, yet air conditioning penetration remains below 10 percent, highlighting severe gaps in electricity infrastructure and cooling access.": "india_is_experiencing_extreme_d795c98f2594.mp3", "geopolitical tension": "geopolitical_tension_63ae69b41870.mp3", "Australian Prime Minister Anthony Albanese and Indian Prime Minister Narendra Modi reached an agreement during Modi's visit, under which Australia will export uranium to India for peaceful purposes such as power generation.": "australian_prime_minister_anth_1ac26b659387.mp3", "Ukraine's armed forces announced on July 11 that they had destroyed 21 oil tankers, four tugboats and other vessels in the Sea of Azov, forcing Russia to suspend civilian shipping through the Kerch Strait.": "ukraine_s_armed_forces_announc_82fb1cfb227a.mp3", "automobile export": "automobile_export_87071cced8e1.mp3", "France's consumer price index rose 1.8 percent year on year in June, slowing from a 2.4 percent increase in May, as energy price growth narrowed, according to official statistics released on July 10.": "france_s_consumer_price_index_2aa3ed2e91d9.mp3", "China's national electricity load hit a record high of 151.8 million kilowatts on July 10, surpassing the previous peak by 10 million kilowatts, the National Development and Reform Commission announced.": "china_s_national_electricity_l_0b37e67e0aae.mp3", "uranium export": "uranium_export_8f55c3274b84.mp3", "diesel export ban": "diesel_export_ban_3a7ce1b3a8b9.mp3", "Brazil's foreign trade chamber decided on July 9 to extend a 12 percent tax on crude oil exports for another 60 days, with the resolution taking effect on July 10, aiming to shield domestic refiners from global price volatility.": "brazil_s_foreign_trade_chamber_ace5d451c8db.mp3", "corporate bankruptcy": "corporate_bankruptcy_8113c810659a.mp3", "Indian Prime Minister Narendra Modi and New Zealand Prime Minister Christopher Luxon announced in Auckland on July 11 that the two countries would elevate bilateral relations to a strategic partnership.": "indian_prime_minister_narendra_5f60c7acc59a.mp3", "electromagnetic railgun": "electromagnetic_railgun_ccb674144140.mp3", "cloud provider": "cloud_provider_4697c868b194.mp3", "Japan's space agency JAXA conducted a reusable rocket test flight on July 11, with its RV-X vehicle reaching a maximum altitude of only 11 meters during a 40-second hop, a modest step toward future reusable launchers.": "japan_s_space_agency_jaxa_cond_202ca551a73f.mp3", "China's summer grain output in 2026 reached 301.49 billion jin, exceeding 300 billion jin for the first time and increasing by 2 billion jin compared with the previous year, according to data released by the National Bureau of Statistics.": "china_s_summer_grain_output_in_47ea8203e568.mp3", "The UK Treasury designated Amazon Web Services, Google Cloud, Microsoft Azure and Oracle as critical third parties to the financial system on July 10, bringing major cloud providers under direct supervision by the Bank of England from July 13.": "the_uk_treasury_designated_ama_2eea918cb096.mp3", "pension fund": "pension_fund_cc88191fdeea.mp3", "China's first fully domestically produced 100,000-card AI supercomputing cluster, named Sugon 8000 (Dengfeng), was officially unveiled on July 10 and connected to the national supercomputing internet.": "china_s_first_fully_domestical_64bb12733461.mp3", "SpaceX launched a Falcon 9 rocket from Vandenberg Space Force Base on July 11, carrying Starlink Group 17-48 satellites into low Earth orbit.": "spacex_launched_a_falcon_9_roc_b95dfd933598.mp3", "food and drug administration (FDA)": "food_and_drug_administration_ee8747829817.mp3", "low Earth orbit": "low_earth_orbit_c9f28a5542e8.mp3", "high-bandwidth memory (HBM)": "high_bandwidth_memory_hbm_bd18858ebeea.mp3", "Japanese corporate bankruptcies reached 5,346 cases in the first half of 2026, up 7.1 percent year on year and exceeding 5,000 for the first time in 11 years, according to Tokyo Shoko Research.": "japanese_corporate_bankruptcie_f74ff5e69bb8.mp3", "electric vertical take-off and landing (eVTOL)": "electric_vertical_take_off_and_e2883030f770.mp3", "wildfire evacuation": "wildfire_evacuation_2f213b32fbb1.mp3", "International Energy Agency Executive Director Fatih Birol warned on July 11 that Europe's electrification rate has stagnated at around 23 percent for a decade, calling it a major mistake that weakens the continent's competitiveness and energy sovereignty.": "international_energy_agency_ex_c4559d803933.mp3", "Spain defeated Belgium 2-1 in the 2026 World Cup quarterfinals on July 10, advancing to a semifinal match against France; a minute of silence was held before kickoff for victims of the Almeria wildfires.": "spain_defeated_belgium_2_1_in_d216e8ae8e10.mp3", "initial public offering (IPO)": "initial_public_offering_ipo_88b1af01d64d.mp3", "Germany's Bundestag narrowly passed a health insurance reform bill, known as the Premium Stabilization Act, which aims to save 18.8 billion euros next year by cutting benefits and raising contributions for high-income earners.": "germany_s_bundestag_narrowly_p_41a8ed548b74.mp3"};</script>
+<script>
+// ===== TTS 多音色控件 (本地 MP3, 文件名由 Python 注入) =====
+(function() {
+  var AUDIO_BASE = './tts_speaker/' + window.__TTS_DATE__ + '/';
+  var currentIcon = null;
+  var currentTarget = null;
+  var currentAudio = null;
+  var audioPool = [];
+
+  // 当前设置 (速度通过 audio.playbackRate 实时控制, 不生成多份 MP3)
+  var settings = { accent: 'US', gender: 'female', speed: '1.0' };
+  function prefix() {
+    return settings.accent + '_' + settings.gender;
+  }
+
+  // 文件名由 Python 端生成, 直接查表 (避免 JS MD5 不匹配)
+  // 同一文本在所有 16 个组合下用相同文件名 (MP3 路径只差目录前缀)
+  var TTS_MAP = window.__TTS_MAP__ || {};
+
+  function getAudio() {
+    var a = audioPool.pop();
+    if (!a) {
+      a = new Audio();
+      a.preload = 'none';
+    }
+    return a;
+  }
+  function releaseAudio(a) {
+    a.pause();
+    a.removeAttribute('src');
+    a.load();
+    audioPool.push(a);
+  }
+  function clearHighlight() {
+    if (currentTarget) {
+      currentTarget.classList.remove('tts-highlight');
+      currentTarget = null;
+    }
+    if (currentIcon) {
+      currentIcon.classList.remove('playing');
+      currentIcon = null;
+    }
+  }
+  function stopAll() {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      currentAudio = null;
+    }
+    clearHighlight();
+  }
+
+  function speak(text, icon, target) {
+    if (currentIcon === icon && currentAudio && !currentAudio.paused) {
+      stopAll();
+      return;
+    }
+    stopAll();
+    if (!text) { console.warn('[TTS] No text'); return; }
+
+    var filename = TTS_MAP[text];
+    if (!filename) {
+      console.warn('[TTS] Text not in map:', text.substring(0, 50));
+      return;
+    }
+    var audioFile = prefix() + '/' + filename;
+
+    var audio = getAudio();
+    audio.src = AUDIO_BASE + audioFile;
+    audio.playbackRate = parseFloat(settings.speed);  // 速度实时控制, 不预生成多份
+    currentAudio = audio;
+
+    audio.onplay = function() {
+      if (icon) { icon.classList.add('playing'); currentIcon = icon; }
+      if (target) { target.classList.add('tts-highlight'); currentTarget = target; }
+    };
+    audio.onended = function() {
+      clearHighlight();
+      currentAudio = null;
+      releaseAudio(audio);
+    };
+    audio.onerror = function() {
+      console.error('[TTS] Audio load error:', audioFile);
+      clearHighlight();
+      currentAudio = null;
+      releaseAudio(audio);
+      if (icon) {
+        icon.textContent = '\u{274C}';
+        setTimeout(function() { icon.textContent = '\u{1F50A}'; }, 1500);
+      }
+    };
+
+    audio.play().catch(function(err) {
+      console.error('[TTS] Play failed:', err);
+      clearHighlight();
+      currentAudio = null;
+      releaseAudio(audio);
+    });
+  }
+
+  function normalizeText(text) {
+    return text.replace(/~([$]?\d)/g, 'about $1');
+  }
+
+  function makeIcon(cls) {
+    var icon = document.createElement('span');
+    icon.className = 'tts-icon ' + cls;
+    icon.textContent = '\u{1F50A}';
+    icon.title = '\u70B9\u51FB\u6717\u8BFB';
+    return icon;
+  }
+
+  function initTTS() {
+    document.querySelectorAll('.en-text').forEach(function(el) {
+      var text = el.textContent.trim();
+      text = normalizeText(text);
+      el.setAttribute('data-text', text);
+      var icon = makeIcon('tts-sentence');
+      icon.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        speak(el.getAttribute('data-text'), icon, el);
+      });
+      el.appendChild(icon);
+    });
+    document.querySelectorAll('.kw-en').forEach(function(el) {
+      var text = el.textContent.trim();
+      text = normalizeText(text);
+      el.setAttribute('data-text', text);
+      var icon = makeIcon('tts-kw');
+      icon.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        speak(el.getAttribute('data-text'), icon, el);
+      });
+      el.appendChild(icon);
+    });
+  }
+
+  // ===== 日期导航 =====
+  function buildDateNav() {
+    var dateNav = document.createElement('div');
+    dateNav.className = 'tts-panel-group';
+
+    var todayBtn = document.createElement('button');
+    todayBtn.className = 'tts-panel-btn';
+    todayBtn.textContent = '\uD83D\uDCC5 Today';
+    dateNav.appendChild(todayBtn);
+
+    var dateSelect = document.createElement('select');
+    dateSelect.className = 'tts-date-select';
+    dateSelect.style.marginLeft = '8px';
+    dateSelect.style.padding = '4px 8px';
+    dateSelect.style.borderRadius = '4px';
+    dateSelect.style.border = '1px solid #ccc';
+    dateSelect.style.fontSize = '12px';
+
+    var today = new Date().toISOString().slice(0, 10);
+    var currentDate = window.__TTS_DATE__ || today;
+
+    function getDateUrl(d) {
+      if (d === currentDate) {
+        return 'index.html';
+      }
+      return 'archive/' + d + '.html';
+    }
+
+    todayBtn.onclick = function() { window.location.href = 'index.html'; };
+
+    fetch('dates.json').then(function(res) {
+      if (!res.ok) throw new Error();
+      return res.json();
+    }).then(function(data) {
+      var dates = data.dates || [];
+      dates.sort(function(a, b) { return new Date(b) - new Date(a); });
+      dates.forEach(function(d) {
+        var opt = document.createElement('option');
+        opt.value = d;
+        opt.textContent = d;
+        opt.selected = (d === currentDate);
+        dateSelect.appendChild(opt);
+      });
+    }).catch(function() {
+      var opt = document.createElement('option');
+      opt.value = currentDate;
+      opt.textContent = currentDate;
+      dateSelect.appendChild(opt);
+    });
+
+    dateSelect.onchange = function() {
+      var selected = this.value;
+      window.location.href = getDateUrl(selected);
+    };
+
+    dateNav.appendChild(dateSelect);
+    return dateNav;
+  }
+
+  // ===== 控件面板 =====
+  function buildPanel() {
+    var panel = document.createElement('div');
+    panel.className = 'tts-panel';
+
+    panel.appendChild(buildDateNav());
+
+    var accentGroup = document.createElement('div');
+    accentGroup.className = 'tts-panel-group';
+    accentGroup.innerHTML = '<span class="tts-panel-label">Accent</span>';
+    ACCENTS.forEach(function(a) {
+      var btn = document.createElement('button');
+      btn.className = 'tts-panel-btn' + (a === settings.accent ? ' active' : '');
+      btn.textContent = a;
+      btn.dataset.accent = a;
+      accentGroup.appendChild(btn);
+    });
+    panel.appendChild(accentGroup);
+
+    var genderGroup = document.createElement('div');
+    genderGroup.className = 'tts-panel-group';
+    genderGroup.innerHTML = '<span class="tts-panel-label">Voice</span>';
+    GENDERS.forEach(function(g) {
+      var btn = document.createElement('button');
+      btn.className = 'tts-panel-btn' + (g === settings.gender ? ' active' : '');
+      btn.textContent = g === 'male' ? '\u2642 Male' : '\u2640 Female';
+      btn.dataset.gender = g;
+      genderGroup.appendChild(btn);
+    });
+    panel.appendChild(genderGroup);
+
+    var speedGroup = document.createElement('div');
+    speedGroup.className = 'tts-panel-group';
+    speedGroup.innerHTML = '<span class="tts-panel-label">Speed</span>';
+    SPEEDS.forEach(function(s) {
+      var btn = document.createElement('button');
+      btn.className = 'tts-panel-btn' + (s === settings.speed ? ' active' : '');
+      btn.textContent = s + 'x';
+      btn.dataset.speed = s;
+      speedGroup.appendChild(btn);
+    });
+    panel.appendChild(speedGroup);
+
+    return panel;
+  }
+
+  var ACCENTS = ['US', 'GB'];
+  var GENDERS = ['male', 'female'];
+  var SPEEDS = ['0.7', '0.8', '0.9', '1.0'];
+
+  function bindEvents() {
+    var panel = document.querySelector('.tts-panel');
+    if (!panel) return;
+    panel.addEventListener('click', function(e) {
+      var btn = e.target.closest('.tts-panel-btn');
+      if (!btn) return;
+      var changed = false;
+      if (btn.dataset.accent) {
+        if (settings.accent !== btn.dataset.accent) {
+          settings.accent = btn.dataset.accent;
+          changed = true;
+          panel.querySelectorAll('[data-accent]').forEach(function(b) {
+            b.classList.toggle('active', b.dataset.accent === settings.accent);
+          });
+        }
+      } else if (btn.dataset.gender) {
+        if (settings.gender !== btn.dataset.gender) {
+          settings.gender = btn.dataset.gender;
+          changed = true;
+          panel.querySelectorAll('[data-gender]').forEach(function(b) {
+            b.classList.toggle('active', b.dataset.gender === settings.gender);
+          });
+        }
+      } else if (btn.dataset.speed) {
+        if (settings.speed !== btn.dataset.speed) {
+          settings.speed = btn.dataset.speed;
+          changed = true;
+          panel.querySelectorAll('[data-speed]').forEach(function(b) {
+            b.classList.toggle('active', b.dataset.speed === settings.speed);
+          });
+        }
+      }
+      if (changed) {
+        stopAll();
+        console.log('[TTS] Switched to:', settings);
+      }
+    });
+  }
+
+  function init() {
+    var searchBox = document.querySelector('.search-box');
+    if (searchBox) {
+      searchBox.parentNode.insertBefore(buildPanel(), searchBox);
+    } else {
+      document.body.insertBefore(buildPanel(), document.body.firstChild);
+    }
+    initTTS();
+    bindEvents();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  window.addEventListener('beforeunload', function() { stopAll(); });
+})();
+</script>
+<script>
+// ===== 用户进度跟踪 (纯 localStorage, 无后端) =====
+(function() {
+  var TODAY = window.__TTS_DATE__ || new Date().toISOString().slice(0, 10);
+  var READ_KEY = 'dn_' + TODAY + '_read';
+  var WORDS_KEY = 'dn_' + TODAY + '_words';
+
+  // ===== Storage helpers =====
+  function getJSON(key, def) {
+    try { var v = localStorage.getItem(key); return v ? JSON.parse(v) : def; }
+    catch(e) { return def; }
+  }
+  function setJSON(key, val) {
+    try { localStorage.setItem(key, JSON.stringify(val)); } catch(e) {}
+  }
+
+  // ===== 已读状态 =====
+  function getRead() { return getJSON(READ_KEY, []); }
+  function isRead(id) { return getRead().indexOf(id) !== -1; }
+  function toggleRead(id) {
+    var list = getRead();
+    var i = list.indexOf(id);
+    if (i !== -1) { list.splice(i, 1); }
+    else { list.push(id); }
+    setJSON(READ_KEY, list);
+    refreshAll();
+  }
+
+  // ===== 词汇状态 =====
+  // '': 未掌握 -> 'mastered': 已掌握 -> ''
+  function getWords() { return getJSON(WORDS_KEY, {}); }
+  function getWordStatus(en) { return getWords()[en] || ''; }
+  function cycleWord(en) {
+    var words = getWords();
+    if (words[en] === 'mastered') { delete words[en]; }
+    else { words[en] = 'mastered'; }
+    setJSON(WORDS_KEY, words);
+    refreshAll();
+  }
+
+  // ===== 累计统计 (遍历所有日期的 localStorage) =====
+  function parseDate(s) {
+    var p = s.split('-');
+    return new Date(parseInt(p[0]), parseInt(p[1]) - 1, parseInt(p[2]));
+  }
+  function calcStats() {
+    var totalNews = 0, totalWords = 0, activeDates = [];
+    for (var i = 0; i < localStorage.length; i++) {
+      var key = localStorage.key(i);
+      if (!key || key.indexOf('dn_') !== 0) continue;
+      if (key.indexOf('_read') !== -1) {
+        var reads = getJSON(key, []);
+        if (reads.length > 0) {
+          totalNews += reads.length;
+          activeDates.push(key.replace('dn_', '').replace('_read', ''));
+        }
+      } else if (key.indexOf('_words') !== -1) {
+        var words = getJSON(key, {});
+        for (var w in words) {
+          if (words[w] === 'mastered') totalWords++;
+        }
+      }
+    }
+    // Streak: 从最近活跃日往前数连续天数
+    activeDates.sort();
+    var streak = 0;
+    if (activeDates.length > 0) {
+      var now = new Date();
+      var todayStr = now.toISOString().slice(0, 10);
+      var yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
+      var yStr = yesterday.toISOString().slice(0, 10);
+      var last = activeDates[activeDates.length - 1];
+      if (last === todayStr || last === yStr) {
+        streak = 1;
+        for (var j = activeDates.length - 2; j >= 0; j--) {
+          var d1 = parseDate(activeDates[j + 1]);
+          var d2 = parseDate(activeDates[j]);
+          var diff = Math.round((d1 - d2) / 86400000);
+          if (diff === 1) { streak++; }
+          else { break; }
+        }
+      }
+    }
+    return {
+      totalNews: totalNews,
+      totalWords: totalWords,
+      streak: streak,
+      activeDays: activeDates.length
+    };
+  }
+
+  // ===== UI 刷新 =====
+  function refreshAll() {
+    var read = getRead();
+    var words = getWords();
+    var mastered = 0;
+    for (var w in words) { if (words[w] === 'mastered') mastered++; }
+
+    var newsCards = document.querySelectorAll('.news-card');
+    var kwCards = document.querySelectorAll('.kw-card');
+    var newsTotal = newsCards.length;
+    var kwTotal = kwCards.length;
+
+    // 进度条
+    var fill = document.querySelector('.progress-fill');
+    var text = document.querySelector('.progress-text');
+    if (fill && text) {
+      var pct = newsTotal > 0 ? (read.length / newsTotal * 100) : 0;
+      fill.style.width = pct + '%';
+      text.textContent = '今日 ' + read.length + '/' + newsTotal + ' 篇  词汇 ' + mastered + '/' + kwTotal + ' 词';
+    }
+
+    // 统计面板数字
+    var stats = calcStats();
+    var el;
+    el = document.getElementById('sp-news'); if (el) el.textContent = stats.totalNews;
+    el = document.getElementById('sp-words'); if (el) el.textContent = stats.totalWords;
+    el = document.getElementById('sp-streak'); if (el) el.textContent = stats.streak;
+    el = document.getElementById('sp-days'); if (el) el.textContent = stats.activeDays;
+  }
+
+  // ===== 初始化 =====
+  function initProgress() {
+    // 1. 新闻卡片: 添加已读按钮
+    var newsCards = document.querySelectorAll('.news-card');
+    newsCards.forEach(function(card, i) {
+      var id = 'n' + i;
+      card.setAttribute('data-nid', id);
+
+      var btn = document.createElement('button');
+      btn.className = 'read-btn';
+      btn.innerHTML = '&#10003;';
+      btn.title = '标记已读';
+      if (isRead(id)) {
+        card.classList.add('read');
+        btn.classList.add('read');
+      }
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var nid = card.getAttribute('data-nid');
+        toggleRead(nid);
+        var nowRead = isRead(nid);
+        card.classList.toggle('read', nowRead);
+        btn.classList.toggle('read', nowRead);
+      });
+      card.appendChild(btn);
+    });
+
+    // 2. 关键词卡片: ✓ 按钮 (inline, 跟 TTS 图标并排)
+    var kwCards = document.querySelectorAll('.kw-card');
+    kwCards.forEach(function(card) {
+      var enEl = card.querySelector('.kw-en');
+      if (!enEl) return;
+      // 用 data-text 取干净文本 (TTS JS 已设置, 避免读到图标字符)
+      var en = enEl.getAttribute('data-text') || enEl.textContent.trim();
+
+      var status = getWordStatus(en);
+      if (status === 'mastered') card.classList.add('mastered');
+
+      // ✓ 按钮 — 跟在 TTS 图标后面, 与新闻卡片同款打钩风格
+      var kwBtn = document.createElement('button');
+      kwBtn.className = 'kw-status-btn';
+      if (status === 'mastered') kwBtn.classList.add('mastered');
+      kwBtn.innerHTML = status === 'mastered' ? '&#10003;' : '';
+      kwBtn.title = '标记已掌握';
+
+      function updateKwVisual() {
+        var ns = getWordStatus(en);
+        card.classList.toggle('mastered', ns === 'mastered');
+        kwBtn.classList.toggle('mastered', ns === 'mastered');
+        kwBtn.innerHTML = ns === 'mastered' ? '&#10003;' : '';
+      }
+
+      kwBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        cycleWord(en);
+        updateKwVisual();
+      });
+      enEl.appendChild(kwBtn);
+    });
+
+    // 3. 进度条 (插入到 header 之后)
+    var header = document.querySelector('.header');
+    if (header) {
+      var bar = document.createElement('div');
+      bar.className = 'progress-bar';
+      bar.innerHTML = '<span class="progress-text">今日 0/0 篇  词汇 0/0 词</span>' +
+        '<div class="progress-track"><div class="progress-fill"></div></div>';
+      header.parentNode.insertBefore(bar, header.nextSibling);
+    }
+
+    // 4. 统计按钮 + 浮层面板
+    var statsBtn = document.createElement('button');
+    statsBtn.className = 'stats-btn';
+    statsBtn.textContent = '\u{1F4CA}';
+    statsBtn.title = '学习统计';
+    document.body.appendChild(statsBtn);
+
+    var overlay = document.createElement('div');
+    overlay.className = 'stats-overlay';
+    document.body.appendChild(overlay);
+
+    var panel = document.createElement('div');
+    panel.className = 'stats-panel';
+    panel.innerHTML =
+      '<h3>学习统计 <button class="stats-close">&times;</button></h3>' +
+      '<div class="stats-grid">' +
+        '<div class="stats-item"><div class="stats-num" id="sp-news">0</div><div class="stats-label">累计已读</div></div>' +
+        '<div class="stats-item"><div class="stats-num" id="sp-words">0</div><div class="stats-label">已掌握词</div></div>' +
+        '<div class="stats-item"><div class="stats-num" id="sp-streak">0</div><div class="stats-label">连续天数</div></div>' +
+        '<div class="stats-item"><div class="stats-num" id="sp-days">0</div><div class="stats-label">活跃天数</div></div>' +
+      '</div>' +
+      '<div class="stats-actions">' +
+        '<button class="sp-export">导出进度</button>' +
+        '<button class="sp-import">导入进度</button>' +
+        '<button class="sp-reset danger">重置今日</button>' +
+      '</div>';
+    document.body.appendChild(panel);
+
+    // 面板开关
+    statsBtn.addEventListener('click', function() {
+      overlay.classList.add('show');
+      panel.classList.add('show');
+      refreshAll();
+    });
+    function closePanel() {
+      overlay.classList.remove('show');
+      panel.classList.remove('show');
+    }
+    overlay.addEventListener('click', closePanel);
+    panel.querySelector('.stats-close').addEventListener('click', closePanel);
+
+    // 导出
+    panel.querySelector('.sp-export').addEventListener('click', function() {
+      var data = {};
+      for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (key && key.indexOf('dn_') === 0) {
+          data[key] = localStorage.getItem(key);
+        }
+      }
+      var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'daily-news-progress-' + TODAY + '.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    // 导入
+    panel.querySelector('.sp-import').addEventListener('click', function() {
+      var input = document.createElement('input');
+      input.type = 'file';
+      input.accept = '.json';
+      input.addEventListener('change', function(e) {
+        var file = e.target.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function(ev) {
+          try {
+            var data = JSON.parse(ev.target.result);
+            var count = 0;
+            for (var key in data) {
+              if (key.indexOf('dn_') === 0) {
+                localStorage.setItem(key, data[key]);
+                count++;
+              }
+            }
+            alert('导入成功! (' + count + ' 条记录)\n页面将刷新。');
+            location.reload();
+          } catch(err) {
+            alert('导入失败: 文件格式错误');
+          }
+        };
+        reader.readAsText(file);
+      });
+      input.click();
+    });
+
+    // 重置今日
+    panel.querySelector('.sp-reset').addEventListener('click', function() {
+      if (confirm('确定要重置今日的进度吗?\n(已读和词汇状态将清空, 历史数据不受影响)')) {
+        localStorage.removeItem(READ_KEY);
+        localStorage.removeItem(WORDS_KEY);
+        location.reload();
+      }
+    });
+
+    // 初始渲染
+    refreshAll();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProgress);
+  } else {
+    initProgress();
+  }
+})();
+</script>
+</body>
+</html>
